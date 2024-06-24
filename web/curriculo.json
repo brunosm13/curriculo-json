@@ -1,0 +1,177 @@
+{
+	"atualizadoEm": "Última atualização em maio de 2024",
+	"titulo": "CURRICULUM VITAE",
+	"nome": "BRUNO SILVA MACÁRIO",
+	"dataNascimento": "24/02/1991",
+	"estadoCivil": "Solteiro",
+	"emailPessoal": "brunosm13@gmail.com",
+	"linkedIn": "https://www.linkedin.com/in/brunosm13/",
+	"formacoes": [
+	  {
+		"instituto": "INSTITUTO FEDERAL DE CIÊNCIA, EDUCAÇÃO E TECNOLOGIA - CAMPUS CUIABÁ",
+		"area": "Curso Superior de Tecnologia em Sistemas para Internet",
+		"concluidoEm": "2020",
+		"TCC": "Análise e Projeto do WebApp IFMT Informa",
+		"TCClink": "https://drive.google.com/file/d/17VvXLQa1R8T5enqbj8HszjeTSE9LUeOl/view"
+	  }
+	],
+	"experiencias": [
+	  {
+		"empresa": "FITINSUR",
+		"cargo": "Analista de Sistemas",
+		"modalidade": "Homeoffice",
+		"periodo": "janeiro de 2022 até o momento",
+		"atividades": "Análise de requisitos para sistema que suporta os processos de seguro (cotação, emissão de apólice e endosso) em equipe ágil."
+	  },
+	  {
+		"empresa": "LOG LAB INTELIGÊNCIA DIGITAL",
+		"cargo": "Analista de Negócios",
+		"modalidade": "Presencial e Homeoffice",
+		"periodo": "fevereiro de 2017 até dezembro de 2021",
+		"atividades": "Análise de Requisitos em Equipe SCRUM/CMMI Lvl 3, Análise de Requisitos, Análise de Negócio, Análise de Processos de Negócio, Suporte a implantação de Sistemas e Processos de TI e Elaboração de design gráfico corporativo."
+	  },
+	  {
+		"empresa": "AIR SOFTWARE SERVICOS DE TECNOLOGIA E INFORMATICA",
+		"cargo": "Programador Junior",
+		"modalidade": "Presencial",
+		"periodo": "junho de 2015 a agosto de 2016",
+		"atividades": "Desenvolvimento em VB.NET e ASP.NET, Levantamento de Requisitos, Modelagem de Dados e Liderança de Equipe de Desenvolvimento."
+	  },
+	  {
+		"empresa": "PROGRAMA DE EDUÇÃO TUTORIAL – PET AUTONET - IFMT - CAMPUS CUIABÁ",
+		"cargo": "Bolsista CNPq",
+		"modalidade": "Presencial",
+		"periodo": "2012 a 2014",
+		"atividades": "Monitoria, Elaboração de Minicursos e Oficinas, Pesquisas Acadêmicas, Atividades com o Ensino Médio e a comunidade acadêmica, Participação em congressos, conferências, encontros e visitas técnicas."
+	  },
+	  {
+		"empresa": "SECRETARIA DO ESTADO DE MATO GROSSO",
+		"cargo": "Estagiário de Suporte Técnico",
+		"modalidade": "Presencial",
+		"periodo": "fevereiro de 2010 a fevereiro de 2012",
+		"atividades": "Atendimento telefônico de Helpdesk, Atendimento presencial de Helpdesk, Montagem e Manutenção de Computadores."
+	  }
+	],
+	"CursosTreinamentosCertificacoes": [
+	  {
+		"tipo": "Curso",
+		"nome": "UX: entenda a experiência de usuário",
+		"link": "https://drive.google.com/file/d/18STc5FP8iVoL5EibquOHjlxpprEmdG_g/view",
+		"onde": "efetuado no portal do Alura",
+		"quando": "em 2023"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Comunicação: como se expressar bem e ser compreendido",
+		"link": "https://drive.google.com/file/d/145Mj5dKig7sux02TcSDRnh7ZdceCg19T/view",
+		"onde": "efetuado no portal do Alura",
+		"quando": "em 2023"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Gerenciamento de conflitos: técnicas fundamentais",
+		"link": "https://drive.google.com/file/d/14Jj77vav20NeypepdefFG43ciszo5PqB/view",
+		"onde": "efetuado no portal do Alura",
+		"quando": "em 2023"
+	  },
+	  {
+		"tipo": "Certificado",
+		"nome": "Professional Scrum Product Owner I",
+		"link": "https://www.scrum.org/certificates/739322",
+		"onde": "emitido por Scrum.Org",
+		"quando": "em 2021"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Formação Analista de Business Intelligenci com Power BI,",
+		"link": "https://drive.google.com/file/d/1ZfxLeFPN5ggVR4N66ZMA2fkx-DzEwv3A/view",
+		"onde": "efetuado no portal do Udemy",
+		"quando": "em 2021"
+	  },
+	  {
+		"tipo": "Certificado",
+		"nome": "Remote Work and Virtual Collaboration - (Portuguese) RWVCPC",
+		"link": "https://drive.google.com/file/d/1ZfxLeFPN5ggVR4N66ZMA2fkx-DzEwv3A/view",
+		"onde": "emitido por CertiProf",
+		"quando": "em 2021"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Certificação Scrum Product Owner: Preparatório Completo",
+		"link": "https://drive.google.com/file/d/1UJU8IcDwODp8nf3y36uZtqtv9E-OUNRK/view",
+		"onde": "efetuado no portal do Udemy",
+		"quando": "em 2020"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Modelagem de Processo",
+		"link": "https://drive.google.com/file/d/0B2zBxfo1ThDrdExKRHBXWFE4Mzg/view",
+		"onde": "efetuado no portal do Bizagi",
+		"quando": "em 2017"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Fundamentos de Automação",
+		"link": "https://drive.google.com/file/d/0B2zBxfo1ThDrUVNjWHo2V25PaGs/view",
+		"onde": "efetuado no portal do Bizagi",
+		"quando": "em 2017"
+	  },
+	  {
+		"tipo": "Certificado",
+		"nome": "Agile Scrum Foundation",
+		"link": "https://drive.google.com/file/d/0B2zBxfo1ThDra1k1XzBvUzBrOGM/view",
+		"onde": "emitido por EXIN",
+		"quando": "em 2017"
+	  },
+	  {
+		"tipo": "Treinamento",
+		"nome": "Analista de Projetos Ágeis",
+		"link": "https://drive.google.com/file/d/1ZR-PyubnJfJZLivQeXiftE5IA4yknkF0/view",
+		"onde": "efetuado pela Master House Treinamentos",
+		"quando": "em 2017"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Open CG, somente Módulo I (Adobe Photoshop, Abobe Illustrator, Adobe Indesign) e Módulo II (Adobe Muse, Adobe Dreamweaver e Adobe Animate)",
+		"link": "",
+		"onde": "efetuado na GRACOM – School of Visual Effects",
+		"quando": "de 2017 a 2018"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Inglês II",
+		"link": "",
+		"onde": "efetuado pela UFMT",
+		"quando": "em 2011"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Inglês I",
+		"link": "",
+		"onde": "efetuado pela UFMT",
+		"quando": "em 2011"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Montagem e Manutenção de Computadores",
+		"link": "https://drive.google.com/file/d/1ZYDovsncWf0DqYIGE3Erz-On4DKD0FGQ/",
+		"onde": "efetuado pela Microlins",
+		"quando": "em 2007"
+	  },
+	  {
+		"tipo": "Curso",
+		"nome": "Informática Básica",
+		"link": "https://drive.google.com/file/d/1ZZCI8hdltrmvbrPNJsLf47rbR01Cmv6U/",
+		"onde": "efetuado pelo Projeto Educar é Leve",
+		"quando": "em 2005"
+	  }
+	],
+	"InformacoesBasicas": [
+	  "Possui interesse em Engenharia de Requisitos",
+	  "Possui noções intermediárias em Pacote Office (Word, Excel e PowerPoint)",
+	  "Apresentou o trabalho Análise Qualitativa e Quantitativa da Produção de Fórmulas Matemáticas em Materiais Didáticos dos Docentes de Matemática, Informática e Engenharias do IFMT – Campus Cuiabá – II Seminário das Áreas de Conhecimento da Base Comum do IFMT – Campus Cuiabá (2012)",
+	  "Apresentou o trabalho Android: o novo alvo de vírus – VI Maratona de Robótica – IFMT - Campus Cuiabá (2012)",
+	  "Ministrou a oficina Desenvolvimento de Aplicação JavaFX integrado ao Banco de Dados PostgreSQL - Jornada de Pesquisa e Extensão 2013 - IFMT Campus Cuiabá (2013)"
+	],
+	"rodapeSite": "Desenvolvido por Bruno Silva Macário utilizando Bootstrap v4.1.3 + Javascript + JSON"
+  }
