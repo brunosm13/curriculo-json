@@ -16,61 +16,76 @@
 	</head>
   
 	<body style="font-family: 'Zilla Slab', sans-serif;" class="text-justify">
-		<div class="clearfix mx-5 mt-3">
-			<p class="ml-3 float-left" id="atualizadoEm"></p>
-			<p class="float-right h1 text-right mr-4 font-weight-normal font-italic" style="font-family: 'Calibri Light', sans-serif;" id="titulo"></p>
-		</div>
-		
-		<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-			<div class="card-body">
-				<p class="card-title h1 w-auto border-bottom border-secondary" style="font-family: 'Alata', sans-serif;"  id="nome"></p>	
-				<p class="m-0 p-0"><span class="font-weight-bold">Idade:</span> <span id="idade"></span></p>
-				<p class="m-0 p-0"><span class="font-weight-bold">Estado Civil:</span> <span id="estadoCivil"></span></p>
-				<p class="m-0 p-0"><span class="font-weight-bold">E-mail Pessoal:</span> <a href="" data-toggle="tooltip" title="E-mail pessoal" class="text-danger" id="email"></a></p>
-				<p class="m-0 p-0"><span class="font-weight-bold">LinkedIn:</span> <a href="" data-toggle="tooltip" title="LinkedIn" class="text-danger" id="linkedIn"></a></p>
-			</div>
-		</div>
-		<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-			<div class="card-body">
-				<p>
-					<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">FORMAÇÃO ACADÊMICA</div>
-					<ul type="square" id="formacoes"></ul>
-				</p>
-			</div>
-		</div>	
-		<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-			<div class="card-body">
-				<p>
-					<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">EXPERIÊNCIAS PROFISSIONAIS</div>
-					<ul type="square" id="experiencias"></ul>
-				</p>
-			</div>
-		</div>	
-		<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-			<div class="card-body">
-				<p>
-					<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">CURSOS, TREINAMENTOS E CERTIFICAÇÕES</div>
-					<ul type="square" id="CursosTreinamentosCertificacoes"></ul>
-				</p>
-			</div>
-		</div>
-		
-		<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-			<div class="card-body">
-				<p>
-					<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">INFORMAÇÕES BÁSICAS</div>
-					<ul type="square" id="InformacoesBasicas">
-					</ul>
-				</p>
-			</div>
-		</div>
-		
-		<p class="ml-3 text-center d-print-none" id="rodapeSite"></p>
+		<header class="m-3 d-print-none">
+			<button id="generate-pdf" class="btn btn-outline-secondary btn-lg btn-block">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+					<path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
+					<path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+				</svg>
+				Imprimir
+			</button>
+		</header>
 
+		<article id="content" class="mr-0 ml-0 mt-0">
+			<div class="clearfix mx-5 mt-3">
+				<p class="ml-3 float-left" id="atualizadoEm"></p>
+				<p class="float-right h1 text-right mr-4 font-weight-normal font-italic" style="font-family: 'Calibri Light', sans-serif;" id="titulo"></p>
+			</div>
+			
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<p class="card-title h1 w-auto border-bottom border-secondary" style="font-family: 'Alata', sans-serif;"  id="nome"></p>	
+					<p class="m-0 p-0"><span class="font-weight-bold">Idade:</span> <span id="idade"></span></p>
+					<p class="m-0 p-0"><span class="font-weight-bold">Estado Civil:</span> <span id="estadoCivil"></span></p>
+					<p class="m-0 p-0"><span class="font-weight-bold">E-mail Pessoal:</span> <a href="" data-toggle="tooltip" title="E-mail pessoal" class="text-danger" id="email"></a></p>
+					<p class="m-0 p-0"><span class="font-weight-bold">LinkedIn:</span> <a href="" data-toggle="tooltip" title="LinkedIn" class="text-danger" id="linkedIn"></a></p>
+				</div>
+			</div>
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<p>
+						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">FORMAÇÃO ACADÊMICA</div>
+						<ul type="square" id="formacoes"></ul>
+					</p>
+				</div>
+			</div>	
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<p>
+						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">EXPERIÊNCIAS PROFISSIONAIS</div>
+						<ul type="square" id="experiencias"></ul>
+					</p>
+				</div>
+			</div>	
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<p>
+						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">CURSOS, TREINAMENTOS E CERTIFICAÇÕES</div>
+						<ul type="square" id="CursosTreinamentosCertificacoes"></ul>
+					</p>
+				</div>
+			</div>
+			
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<p>
+						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">INFORMAÇÕES BÁSICAS</div>
+						<ul type="square" id="InformacoesBasicas">
+						</ul>
+					</p>
+				</div>
+			</div>
+			<p class="ml-3 text-center d-print-none" id="rodapeSite"></p>
+		</article>
+		
 
 		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
 		
-		<script id="execute-json">			
+		<script id="execute-json">
+			document.getElementById('generate-pdf').addEventListener('click', function () {
+				window.print();
+			});
+
 			document.addEventListener('DOMContentLoaded', function() {
 				fetch('./curriculo.json')
 				.then(response => response.json())
