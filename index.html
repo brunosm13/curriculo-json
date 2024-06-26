@@ -13,149 +13,154 @@
 	
 		<link href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Zilla+Slab&amp;display=swap" rel="stylesheet">
+		<link rel="icon" href="./img/google_docs_icon_131691.svg">
 	</head>
   
-	<body style="font-family: 'Zilla Slab', sans-serif;" class="text-justify">
+	<body class="text-justify texto-padrao">
 		<header class="m-3 d-print-none">
 			<button id="generate-pdf" class="btn btn-outline-secondary btn-lg btn-block">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
-					<path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
-					<path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
-				</svg>
+				<span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+						<path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
+						<path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+					</svg>
+				</span>
 				Imprimir
 			</button>
 		</header>
-
-		<article id="content" class="mr-0 ml-0 mt-0">
-			<div class="clearfix mx-5 mt-3">
-				<p class="ml-3 float-left" id="atualizadoEm"></p>
-				<p class="float-right h1 text-right mr-4 font-weight-normal font-italic" style="font-family: 'Calibri Light', sans-serif;" id="titulo"></p>
-			</div>
-			
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<p class="card-title h1 w-auto border-bottom border-secondary" style="font-family: 'Alata', sans-serif;"  id="nome"></p>	
-					<p class="m-0 p-0"><span class="font-weight-bold">Idade:</span> <span id="idade"></span></p>
-					<p class="m-0 p-0"><span class="font-weight-bold">Estado Civil:</span> <span id="estadoCivil"></span></p>
-					<p class="m-0 p-0"><span class="font-weight-bold">E-mail Pessoal:</span> <a href="" data-toggle="tooltip" title="E-mail pessoal" class="text-danger" id="email"></a></p>
-					<p class="m-0 p-0"><span class="font-weight-bold">LinkedIn:</span> <a href="" data-toggle="tooltip" title="LinkedIn" class="text-danger" id="linkedIn"></a></p>
-				</div>
-			</div>
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<p>
-						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">FORMAÇÃO ACADÊMICA</div>
-						<ul type="square" id="formacoes"></ul>
-					</p>
-				</div>
-			</div>	
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<p>
-						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">EXPERIÊNCIAS PROFISSIONAIS</div>
-						<ul type="square" id="experiencias"></ul>
-					</p>
-				</div>
-			</div>	
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<p>
-						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">CURSOS, TREINAMENTOS E CERTIFICAÇÕES</div>
-						<ul type="square" id="CursosTreinamentosCertificacoes"></ul>
-					</p>
-				</div>
-			</div>
-			
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<p>
-						<div class="card-title h4 font-weight-bold" style="font-family: 'Alata', sans-serif;">INFORMAÇÕES BÁSICAS</div>
-						<ul type="square" id="InformacoesBasicas">
-						</ul>
-					</p>
-				</div>
-			</div>
-			<p class="ml-3 text-center d-print-none" id="rodapeSite"></p>
-		</article>
 		
+		<main id="content" class="mr-0 ml-0 mt-0">
+			<hgroup class="clearfix mx-5 mt-3">
+				<h6 class="ml-3 float-left" id="atualizadoEm"></h6>
+				<p class="titulo-site float-right text-right h1 mr-4 font-weight-normal font-italic" id="titulo"></p>
+			</hgroup>
+			
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<p class="titulo-principal card-title h1 w-auto border-bottom border-secondary" id="nome">
+					<p class="m-0 p-0"><span class="font-weight-bold">Idade:</span> <span id="idade"></span>
+					<p class="m-0 p-0"><span class="font-weight-bold">Estado Civil:</span> <span id="estadoCivil"></span>
+					<p class="m-0 p-0"><span class="font-weight-bold">E-mail Pessoal:</span> <a href="" data-toggle="tooltip" title="E-mail pessoal" class="text-danger texto-padrao-link" id="email"></a>
+					<p class="m-0 p-0"><span class="font-weight-bold">LinkedIn:</span> <a href="" data-toggle="tooltip" title="LinkedIn" class="text-danger texto-padrao-link" id="linkedIn"></a>
+				</div>
+			</div>
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<div class="titulo-secundario card-title h4 font-weight-bold">FORMAÇÃO ACADÊMICA</div>
+					<ul style="list-style-type: square;" id="formacoes"></ul>
+				</div>
+			</div>	
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<div class="titulo-secundario card-title h4 font-weight-bold">EXPERIÊNCIAS PROFISSIONAIS</div>
+					<ul style="list-style-type: square;" id="experiencias"></ul>
+				</div>
+			</div>	
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<div class="titulo-secundario card-title h4 font-weight-bold">CURSOS, TREINAMENTOS E CERTIFICAÇÕES</div>
+					<ul style="list-style-type: square;"  id="CursosTreinamentosCertificacoes"></ul>
+				</div>
+			</div>
+			
+			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
+				<div class="card-body">
+					<div class="titulo-secundario card-title h4 font-weight-bold">INFORMAÇÕES BÁSICAS</div>
+					<ul style="list-style-type: square;"  id="InformacoesBasicas"></ul>
+				</div>
+			</div>
+		</main>
 
-		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+		<footer class="ml-3 text-center d-print-none" id="rodapeSite">
+		</footer>
+		
+		<script src="./js/jquery-3.3.1.slim.min.js"></script>
+		<script src="./js/bootstrap.bundle.min.js"></script>
+
+		<script src="./js/bootstrap.min.js"></script>
 		
 		<script id="execute-json">
+			document.addEventListener('DOMContentLoaded', function() {
+				Promise.all([
+					fetch('./curriculo.json').then(response => response.json()),
+					fetch('./fonte-config.json').then(response => response.json())
+				])
+				.then(([dadosPessoa, fonteConfig]) => {
+					carregarCurriculo(dadosPessoa);
+					alterarFonte(fonteConfig);
+				})
+				.catch(error => {
+					console.error('Erro ao carregar os dados:', error);
+				});
+			});
+
 			document.getElementById('generate-pdf').addEventListener('click', function () {
 				window.print();
 			});
 
-			document.addEventListener('DOMContentLoaded', function() {
-				fetch('./curriculo.json')
-				.then(response => response.json())
-				.then(data => {
+			function carregarCurriculo(data) {
+				document.getElementById("atualizadoEm").innerText = data.atualizadoEm;
+				document.getElementById("nome").innerText = data.nome;
+				document.getElementById("titulo").innerText = data.titulo;
+				
+				const dataNascimentoDate = converteDataBR(data.dataNascimento);
+				const idade = calcularIdade(dataNascimentoDate);
+
+				document.getElementById("idade").innerText = idade+' anos';	
+				document.getElementById("estadoCivil").innerText = data.estadoCivil;
+				document.getElementById("email").innerText = data.emailPessoal;
+				document.getElementById("email").href = `mailto:${data.emailPessoal}`;
+				document.getElementById("linkedIn").innerText = data.linkedIn;
+				document.getElementById("linkedIn").href = data.linkedIn;
 					
-					document.getElementById("atualizadoEm").innerText = data.atualizadoEm;
-					document.getElementById("titulo").innerText = data.titulo;
-					document.getElementById("nome").innerText = data.nome;
-
-					const dataNascimentoDate = converteDataBR(data.dataNascimento);
-            		const idade = calcularIdade(dataNascimentoDate);
-
-					document.getElementById("idade").innerText = idade+' anos';
-
-					document.getElementById("estadoCivil").innerText = data.estadoCivil;
-					document.getElementById("email").innerText = data.emailPessoal;
-					document.getElementById("email").href = `mailto:${data.emailPessoal}`;
-					document.getElementById("linkedIn").innerText = data.linkedIn;
-					document.getElementById("linkedIn").href = data.linkedIn;
-					
-					const formacoesList = document.getElementById('formacoes');
-					var dnone= "";
-					data.formacoes.forEach(formacao => {
-						const li = document.createElement('li');
+				const formacoesList = document.getElementById('formacoes');
+				var dnone= "";
+				data.formacoes.forEach(formacao => {
+					const li = document.createElement('li');
 		
-						if (formacao.TCC == null ||
-							formacao.TCC == undefined ||
-							formacao.TCC.length == 0 ||
-							formacao.TCClink == null ||
-							formacao.TCClink == undefined ||
-							formacao.TCClink.length == 0){
-							dnone= "d-none";};
+					if (formacao.TCC == null ||
+						formacao.TCC == "undefined" ||
+						formacao.TCC.length == 0 ||
+						formacao.TCClink == null ||
+						formacao.TCClink == "undefined" ||
+						formacao.TCClink.length == 0){
+						dnone= "d-none";};
 
-						li.innerHTML = 
-							`<span class="font-weight-bold border-bottom border-secondary"> ${formacao.instituto} </span>
-								<ul>
-									<li><span class="font-weight-bold">Área:</span> <span class="text-danger" style="font-family: 'Alata', sans-serif;">${formacao.area}</span></li>
-									<li><span class="font-weight-bold">Concluído em:</span> ${formacao.concluidoEm}</li>
-									<li class="${dnone}"><span class="font-weight-bold">TCC:</span> <a href="${formacao.TCClink}" data-toggle="tooltip" title="TCC" class="text-danger">${formacao.TCC}</a></li>
-								</ul>`;
-						formacoesList.appendChild(li);});
+					li.innerHTML = 
+						`<span class="font-weight-bold border-bottom border-secondary"> ${formacao.instituto} </span>
+							<ul>
+								<li><span class="font-weight-bold">Área:</span> <span class="text-danger texto-destaque" style="font-family: Alata, sans-serif;">${formacao.area}</span></li>
+								<li><span class="font-weight-bold">Concluído em:</span> ${formacao.concluidoEm}</li>
+								<li class="${dnone}"><span class="font-weight-bold">TCC:</span> <a href="${formacao.TCClink}" data-toggle="tooltip" title="TCC" class="text-danger texto-padrao-link">${formacao.TCC}</a></li>
+							</ul>`;
+					formacoesList.appendChild(li);});
 						
-					const experienciasList = document.getElementById('experiencias');
-					data.experiencias.forEach(experiencia => {
-						const li = document.createElement('li');
+				const experienciasList = document.getElementById('experiencias');
+				data.experiencias.forEach(experiencia => {
+					const li = document.createElement('li');
 		
+					li.innerHTML = 
+						`<span class="font-weight-bold border-bottom border-secondary">${experiencia.empresa}</span>
+						<ul>
+							<li><span class="font-weight-bold">Cargo: </span><span class="text-danger texto-destaque">${experiencia.cargo}</span></li>
+							<li><span class="font-weight-bold">Modalidade: </span>${experiencia.modalidade} </li>
+							<li><span class="font-weight-bold">Período: </span>${experiencia.periodo}</li>
+							<li><span class="font-weight-bold">Atividade Atual: </span>${experiencia.atividades}</li>
+						</ul>`;	
+					experienciasList.appendChild(li);});
+						
+				const CursosTreinamentosCertificacoesList = document.getElementById('CursosTreinamentosCertificacoes');
+				data.CursosTreinamentosCertificacoes.forEach(item => {
+					const li = document.createElement('li');
+					var link = `href="${item.link}"`;
+						
+					if(item.link == null ||
+					item.link == undefined ||
+					item.link.length == 0){
+					link= "";};
 						li.innerHTML = 
-							`<li><span class="font-weight-bold border-bottom border-secondary" style="font-family: 'Alata', sans-serif;">${experiencia.empresa}</span>
-								<ul>
-									<li><span class="font-weight-bold">Cargo: </span><span class="text-danger" style="font-family: 'Alata', sans-serif;">${experiencia.cargo}</span></li>
-									<li><span class="font-weight-bold">Modalidade: </span>${experiencia.modalidade} </li>
-									<li><span class="font-weight-bold">Período: </span>${experiencia.periodo}</li>
-									<li><span class="font-weight-bold">Atividade Atual: </span>${experiencia.atividades}</li>
-								</ul>
-							</li>`;
-						experienciasList.appendChild(li);});
-						
-					const CursosTreinamentosCertificacoesList = document.getElementById('CursosTreinamentosCertificacoes');
-					data.CursosTreinamentosCertificacoes.forEach(item => {
-						const li = document.createElement('li');
-						var link = `href="${item.link}"`;
-						
-						if(item.link == null ||
-						item.link == undefined ||
-						item.link.length == 0){
-							link= "";};
-						
-						li.innerHTML = 
-							`<li><span class="font-weight-bold"> ${item.tipo}: </span> <a class="text-danger" style="font-family: 'Alata', sans-serif;" ${link}>${item.nome}</a>, ${item.onde} <span class="font-weight-bold">${item.quando}</span></li>`;
-						CursosTreinamentosCertificacoesList.appendChild(li);});
+							`<span class="font-weight-bold"> ${item.tipo}: </span> <a class="text-danger texto-destaque" ${link}>${item.nome}</a>, ${item.onde} <span class="font-weight-bold">${item.quando}</span>`;
+					CursosTreinamentosCertificacoesList.appendChild(li);});
 						
 					const InformacoesBasicasList = document.getElementById('InformacoesBasicas');
 					data.InformacoesBasicas.forEach(item => {
@@ -164,13 +169,11 @@
 						li.innerHTML = item;
 						InformacoesBasicasList.appendChild(li);});	
 				
-					const rodapeSite = document.getElementById('rodapeSite');
-					rodapeSite.innerHTML = data.rodapeSite
-					
-					document.getElementById('execute-json').remove();					
-				})
-				.catch(error => console.error('Erro ao carregar JSON:', error));;
-			});
+				const rodapeSite = document.getElementById('rodapeSite');
+				rodapeSite.innerHTML = data.rodapeSite
+			
+				document.getElementById('execute-json').remove();
+			}
 
 			function converteDataBR(dateStr) {
     			const [day, month, year] = dateStr.split('/').map(Number);
@@ -190,6 +193,35 @@
 				}
 
     			return idade;
+			}
+
+			function alterarFonte(dados) {
+           		var elementos;
+
+				elementos = document.querySelectorAll(".titulo-site");
+            	elementos.forEach(function(elemento)
+					{elemento.style.fontFamily = dados.tituloSite;});
+
+				elementos = document.querySelectorAll(".titulo-principal");
+            	elementos.forEach(function(elemento)
+					{elemento.style.fontFamily = dados.tituloPrincipal;});
+
+				elementos = document.querySelectorAll(".titulo-secundario");
+            	elementos.forEach(function(elemento)
+					{elemento.style.fontFamily = dados.tituloSecundario;});
+
+				elementos = document.querySelectorAll(".texto-destaque");
+            	elementos.forEach(function(elemento)
+					{elemento.style.fontFamily = dados.textoDestaque;});
+					
+				elementos = document.querySelectorAll(".texto-padrao");
+            	elementos.forEach(function(elemento)
+					{elemento.style.fontFamily = dados.textoPadrao;});	
+
+				elementos = document.querySelectorAll(".texto-padrao-link");
+            	elementos.forEach(function(elemento)
+					{elemento.style.fontFamily = dados.textoPadraoLink;});	
+				
 			}
 		</script>
  
