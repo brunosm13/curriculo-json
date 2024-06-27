@@ -40,8 +40,8 @@
 					<p class="titulo-principal card-title h1 w-auto border-bottom border-secondary" id="nome">
 					<p class="m-0 p-0"><span class="font-weight-bold">Idade:</span> <span id="idade"></span>
 					<p class="m-0 p-0"><span class="font-weight-bold">Estado Civil:</span> <span id="estadoCivil"></span>
-					<p class="m-0 p-0"><span class="font-weight-bold">E-mail Pessoal:</span> <a href="" data-toggle="tooltip" title="E-mail pessoal" class="text-danger texto-padrao-link" id="email"></a>
-					<p class="m-0 p-0"><span class="font-weight-bold">LinkedIn:</span> <a href="" data-toggle="tooltip" title="LinkedIn" class="text-danger texto-padrao-link" id="linkedIn"></a>
+					<p class="m-0 p-0"><span class="font-weight-bold">E-mail Pessoal:</span> <a href="" data-toggle="tooltip" title="E-mail pessoal" class="texto-padrao-link" id="email"></a>
+					<p class="m-0 p-0"><span class="font-weight-bold">LinkedIn:</span> <a href="" data-toggle="tooltip" title="LinkedIn" class="texto-padrao-link" id="linkedIn"></a>
 				</div>
 			</div>
 			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
@@ -119,19 +119,19 @@
 					const li = document.createElement('li');
 		
 					if (formacao.TCC == null ||
-						formacao.TCC == "undefined" ||
+						formacao.TCC == undefined ||
 						formacao.TCC.length == 0 ||
 						formacao.TCClink == null ||
-						formacao.TCClink == "undefined" ||
+						formacao.TCClink == undefined ||
 						formacao.TCClink.length == 0){
 						dnone= "d-none";};
 
 					li.innerHTML = 
 						`<span class="font-weight-bold border-bottom border-secondary"> ${formacao.instituto} </span>
 							<ul>
-								<li><span class="font-weight-bold">Área:</span> <span class="text-danger texto-destaque" style="font-family: Alata, sans-serif;">${formacao.area}</span></li>
+								<li><span class="font-weight-bold">Área:</span> <span class="texto-destaque" style="font-family: Alata, sans-serif;">${formacao.area}</span></li>
 								<li><span class="font-weight-bold">Concluído em:</span> ${formacao.concluidoEm}</li>
-								<li class="${dnone}"><span class="font-weight-bold">TCC:</span> <a href="${formacao.TCClink}" data-toggle="tooltip" title="TCC" class="text-danger texto-padrao-link">${formacao.TCC}</a></li>
+								<li class="${dnone}"><span class="font-weight-bold">TCC:</span> <a href="${formacao.TCClink}" data-toggle="tooltip" title="TCC" class="texto-padrao-link">${formacao.TCC}</a></li>
 							</ul>`;
 					formacoesList.appendChild(li);});
 						
@@ -142,7 +142,7 @@
 					li.innerHTML = 
 						`<span class="font-weight-bold border-bottom border-secondary">${experiencia.empresa}</span>
 						<ul>
-							<li><span class="font-weight-bold">Cargo: </span><span class="text-danger texto-destaque">${experiencia.cargo}</span></li>
+							<li><span class="font-weight-bold">Cargo: </span><span class="texto-destaque">${experiencia.cargo}</span></li>
 							<li><span class="font-weight-bold">Modalidade: </span>${experiencia.modalidade} </li>
 							<li><span class="font-weight-bold">Período: </span>${experiencia.periodo}</li>
 							<li><span class="font-weight-bold">Atividade Atual: </span>${experiencia.atividades}</li>
@@ -159,7 +159,7 @@
 					item.link.length == 0){
 					link= "";};
 						li.innerHTML = 
-							`<span class="font-weight-bold"> ${item.tipo}: </span> <a class="text-danger texto-destaque" ${link}>${item.nome}</a>, ${item.onde} <span class="font-weight-bold">${item.quando}</span>`;
+							`<span class="font-weight-bold"> ${item.tipo}: </span> <a class="texto-destaque" ${link}>${item.nome}</a>, ${item.onde} <span class="font-weight-bold">${item.quando}</span>`;
 					CursosTreinamentosCertificacoesList.appendChild(li);});
 						
 					const InformacoesBasicasList = document.getElementById('InformacoesBasicas');
@@ -199,28 +199,40 @@
            		var elementos;
 
 				elementos = document.querySelectorAll(".titulo-site");
-            	elementos.forEach(function(elemento)
-					{elemento.style.fontFamily = dados.tituloSite;});
+            	elementos.forEach(function(elemento){
+					elemento.style.fontFamily = dados.tituloSite;
+					elemento.classList.add(dados.tituloSiteCor);
+					});
 
 				elementos = document.querySelectorAll(".titulo-principal");
-            	elementos.forEach(function(elemento)
-					{elemento.style.fontFamily = dados.tituloPrincipal;});
+            	elementos.forEach(function(elemento){
+					elemento.style.fontFamily = dados.tituloPrincipal;
+					elemento.classList.add(dados.tituloPrincipalCor);
+					});
 
 				elementos = document.querySelectorAll(".titulo-secundario");
-            	elementos.forEach(function(elemento)
-					{elemento.style.fontFamily = dados.tituloSecundario;});
+            	elementos.forEach(function(elemento){
+					elemento.style.fontFamily = dados.tituloSecundario;
+					elemento.classList.add(dados.tituloSecundarioCor);
+					});
 
 				elementos = document.querySelectorAll(".texto-destaque");
-            	elementos.forEach(function(elemento)
-					{elemento.style.fontFamily = dados.textoDestaque;});
+            	elementos.forEach(function(elemento){
+					elemento.style.fontFamily = dados.textoDestaque;
+					elemento.classList.add(dados.textoDestaqueCor);
+					});
 					
 				elementos = document.querySelectorAll(".texto-padrao");
-            	elementos.forEach(function(elemento)
-					{elemento.style.fontFamily = dados.textoPadrao;});	
+            	elementos.forEach(function(elemento){
+					elemento.style.fontFamily = dados.textoPadrao;
+					elemento.classList.add(dados.textoPadraoCor);
+					});	
 
 				elementos = document.querySelectorAll(".texto-padrao-link");
-            	elementos.forEach(function(elemento)
-					{elemento.style.fontFamily = dados.textoPadraoLink;});	
+            	elementos.forEach(function(elemento){
+					elemento.style.fontFamily = dados.textoPadraoLink;
+					elemento.classList.add(dados.textoPadraoLinkCor);
+					});	
 				
 			}
 		</script>

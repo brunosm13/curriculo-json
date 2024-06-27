@@ -1,8 +1,14 @@
 {
 	"tituloSite": "Calibri Light, sans-serif",
+	"tituloSiteCor": "text-body",
 	"tituloPrincipal": "Alata, sans-serif",
+	"tituloPrincipalCor": "text-body",
 	"tituloSecundario": "Alata, sans-serif",
+	"tituloSecundarioCor": "text-dark",
 	"textoDestaque": "Alata, sans-serif",
+	"textoDestaqueCor": "text-danger",
 	"textoPadrao": "Zilla Slab, sans-serif",
-	"textoPadraoLink": "Zilla Slab, sans-serif"
+	"textoPadraoCor": "text-body",
+	"textoPadraoLink": "Zilla Slab, sans-serif",
+	"textoPadraoLinkCor": "text-danger"
 }
