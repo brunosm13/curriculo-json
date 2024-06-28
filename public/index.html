@@ -38,8 +38,8 @@
 			document.addEventListener('DOMContentLoaded', function() {
 				// Promise.all é utilizado quando há mais de duas chamadas ao mesmo tempo
 				Promise.all([
-					fetch('./curriculo.json').then(response => response.json()),
-					fetch('./fonte-config.json').then(response => response.json())
+					fetch('server/data/curriculo').then(response => response.json()),
+					fetch('server/data/fonte').then(response => response.json())
 				])
 				.then(([dadosPessoa, fonteConfig]) => {
 					carregarCurriculo(dadosPessoa);
