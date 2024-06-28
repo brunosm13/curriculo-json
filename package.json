@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Projeto Node.js para servir arquivos JSON",
   "main": "App.js",
+  "type": "module",
   "scripts": {
     "start": "node App.js"
   },

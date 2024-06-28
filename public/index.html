@@ -14,6 +14,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Alata&amp;display=swap" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Zilla+Slab&amp;display=swap" rel="stylesheet">
 		<link rel="icon" href="./img/google_docs_icon_131691.svg">
+
+		
 	</head>
   
 	<body class="text-justify texto-padrao">
@@ -30,7 +32,10 @@
 		<script src="./js/bootstrap.bundle.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
 		
-		<script id="execute-json">
+		<script id="execute-json" type="module">
+			import Util from '/util';
+			import HtmlBootstrap from '/html';
+
 			// Inclui os dados da página
 			carregarPaginaInicial();
 
@@ -54,11 +59,11 @@
 				window.print();
 			});
 
-			function carregarCurriculo(data) {
+			function carregarCurriculo(data) {	
 				document.getElementById("atualizadoEm").appendChild(document.createTextNode(data.atualizadoEm));
 				document.getElementById("nome").appendChild(document.createTextNode(data.nome));
 				document.getElementById("titulo").appendChild(document.createTextNode(data.titulo));
-				document.getElementById("idade").appendChild(document.createTextNode(calcularIdade(converteDataBR(data.dataNascimento))+' anos'));	
+				document.getElementById("idade").appendChild(document.createTextNode(Util.calcularIdade(Util.converteDataBR(data.dataNascimento))+' anos'));	
 				document.getElementById("estadoCivil").appendChild(document.createTextNode(data.estadoCivil));
 				document.getElementById("email").appendChild(document.createTextNode(data.emailPessoal));
 				document.getElementById("email").setAttribute('href',`mailto:${data.emailPessoal}`);
