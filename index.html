@@ -17,58 +17,10 @@
 	</head>
   
 	<body class="text-justify texto-padrao">
-		<header class="m-3 d-print-none">
-			<button id="generate-pdf" class="btn btn-outline-secondary btn-lg btn-block">
-				<span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
-						<path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
-						<path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
-					</svg>
-				</span>
-				Imprimir
-			</button>
+		<header id="cabecalhoSite" class="m-3 d-print-none">
 		</header>
 		
-		<main id="content" class="mr-0 ml-0 mt-0">
-			<hgroup class="clearfix mx-5 mt-3">
-				<h6 class="ml-3 float-left" id="atualizadoEm"></h6>
-				<p class="titulo-site float-right text-right h1 mr-4 font-weight-normal font-italic" id="titulo"></p>
-			</hgroup>
-			
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<p class="titulo-principal card-title h1 w-auto border-bottom border-secondary" id="nome">
-					<p class="m-0 p-0"><span class="font-weight-bold">Idade:</span> <span id="idade"></span>
-					<p class="m-0 p-0"><span class="font-weight-bold">Estado Civil:</span> <span id="estadoCivil"></span>
-					<p class="m-0 p-0"><span class="font-weight-bold">E-mail Pessoal:</span> <a href="" data-toggle="tooltip" title="E-mail pessoal" class="texto-padrao-link" id="email"></a>
-					<p class="m-0 p-0"><span class="font-weight-bold">LinkedIn:</span> <a href="" data-toggle="tooltip" title="LinkedIn" class="texto-padrao-link" id="linkedIn"></a>
-				</div>
-			</div>
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<div class="titulo-secundario card-title h4 font-weight-bold">FORMAÇÃO ACADÊMICA</div>
-					<ul style="list-style-type: square;" id="formacoes"></ul>
-				</div>
-			</div>	
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<div class="titulo-secundario card-title h4 font-weight-bold">EXPERIÊNCIAS PROFISSIONAIS</div>
-					<ul style="list-style-type: square;" id="experiencias"></ul>
-				</div>
-			</div>	
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<div class="titulo-secundario card-title h4 font-weight-bold">CURSOS, TREINAMENTOS E CERTIFICAÇÕES</div>
-					<ul style="list-style-type: square;"  id="CursosTreinamentosCertificacoes"></ul>
-				</div>
-			</div>
-			
-			<div class="card mx-5 border-top-0 border-right-0 border-left-0">
-				<div class="card-body">
-					<div class="titulo-secundario card-title h4 font-weight-bold">INFORMAÇÕES BÁSICAS</div>
-					<ul style="list-style-type: square;"  id="InformacoesBasicas"></ul>
-				</div>
-			</div>
+		<main id="conteudoSite" class="mr-0 ml-0 mt-0">
 		</main>
 
 		<footer class="ml-3 text-center d-print-none" id="rodapeSite">
@@ -76,11 +28,15 @@
 		
 		<script src="./js/jquery-3.3.1.slim.min.js"></script>
 		<script src="./js/bootstrap.bundle.min.js"></script>
-
 		<script src="./js/bootstrap.min.js"></script>
 		
 		<script id="execute-json">
+			// Inclui os dados da página
+			carregarPaginaInicial();
+
+			//Carrega dados dos JSON
 			document.addEventListener('DOMContentLoaded', function() {
+				// Promise.all é utilizado quando há mais de duas chamadas ao mesmo tempo
 				Promise.all([
 					fetch('./curriculo.json').then(response => response.json()),
 					fetch('./fonte-config.json').then(response => response.json())
@@ -94,25 +50,22 @@
 				});
 			});
 
-			document.getElementById('generate-pdf').addEventListener('click', function () {
+			document.getElementById('imprimir').addEventListener('click', function () {
 				window.print();
 			});
 
 			function carregarCurriculo(data) {
-				document.getElementById("atualizadoEm").innerText = data.atualizadoEm;
-				document.getElementById("nome").innerText = data.nome;
-				document.getElementById("titulo").innerText = data.titulo;
-				
-				const dataNascimentoDate = converteDataBR(data.dataNascimento);
-				const idade = calcularIdade(dataNascimentoDate);
-
-				document.getElementById("idade").innerText = idade+' anos';	
-				document.getElementById("estadoCivil").innerText = data.estadoCivil;
-				document.getElementById("email").innerText = data.emailPessoal;
-				document.getElementById("email").href = `mailto:${data.emailPessoal}`;
-				document.getElementById("linkedIn").innerText = data.linkedIn;
-				document.getElementById("linkedIn").href = data.linkedIn;
+				document.getElementById("atualizadoEm").appendChild(document.createTextNode(data.atualizadoEm));
+				document.getElementById("nome").appendChild(document.createTextNode(data.nome));
+				document.getElementById("titulo").appendChild(document.createTextNode(data.titulo));
+				document.getElementById("idade").appendChild(document.createTextNode(calcularIdade(converteDataBR(data.dataNascimento))+' anos'));	
+				document.getElementById("estadoCivil").appendChild(document.createTextNode(data.estadoCivil));
+				document.getElementById("email").appendChild(document.createTextNode(data.emailPessoal));
+				document.getElementById("email").setAttribute('href',`mailto:${data.emailPessoal}`);
+				document.getElementById("linkedIn").appendChild(document.createTextNode(data.linkedIn));
+				document.getElementById("linkedIn").setAttribute('href',data.linkedIn);
 					
+				// Carrega Lista de Formação Acadêmica com suas tags de exibição 
 				const formacoesList = document.getElementById('formacoes');
 				var dnone= "";
 				data.formacoes.forEach(formacao => {
@@ -126,53 +79,177 @@
 						formacao.TCClink.length == 0){
 						dnone= "d-none";};
 
-					li.innerHTML = 
-						`<span class="font-weight-bold border-bottom border-secondary"> ${formacao.instituto} </span>
-							<ul>
-								<li><span class="font-weight-bold">Área:</span> <span class="texto-destaque" style="font-family: Alata, sans-serif;">${formacao.area}</span></li>
-								<li><span class="font-weight-bold">Concluído em:</span> ${formacao.concluidoEm}</li>
-								<li class="${dnone}"><span class="font-weight-bold">TCC:</span> <a href="${formacao.TCClink}" data-toggle="tooltip" title="TCC" class="texto-padrao-link">${formacao.TCC}</a></li>
-							</ul>`;
+					// Nome da Instituto
+					let spanInstituto= document.createElement('span');;
+					spanInstituto.setAttribute('class','font-weight-bold border-bottom border-secondary');
+					spanInstituto.appendChild(document.createTextNode(formacao.instituto));
+
+					// Dados
+					let ulInstituto= document.createElement('ul');
+					spanInstituto.appendChild(ulInstituto);
+
+					//Área	
+					let lblArea= document.createElement('li');
+					let txtArea= document.createElement('span');
+					txtArea.setAttribute('class','font-weight-bold');	
+					txtArea.appendChild(document.createTextNode('Área: '));
+					let valArea= document.createElement('span');
+					valArea.setAttribute('class','texto-destaque');
+					valArea.appendChild(document.createTextNode(formacao.area));
+					lblArea.appendChild(txtArea);
+					lblArea.appendChild(valArea);
+					ulInstituto.appendChild(lblArea);
+
+					//Concluído em	
+					let lblConcluidoEm= document.createElement('li');
+					let txtConcluidoEm= document.createElement('span');
+					txtConcluidoEm.setAttribute('class','font-weight-bold');	
+					txtConcluidoEm.appendChild(document.createTextNode('Concluído em: '));
+					let valConcluidoEm= document.createElement('span');
+					valConcluidoEm.setAttribute('class','texto-destaque');	
+					valConcluidoEm.appendChild(document.createTextNode(formacao.concluidoEm));
+					lblConcluidoEm.appendChild(txtConcluidoEm);
+					lblConcluidoEm.appendChild(valConcluidoEm);
+					ulInstituto.appendChild(lblConcluidoEm);
+					
+					//TCC	
+					let lblTCC= document.createElement('li');
+					lblTCC.setAttribute('class',dnone);
+					let txtTCC= document.createElement('span');
+					txtTCC.setAttribute('class','font-weight-bold');	
+					txtTCC.appendChild(document.createTextNode('TCC: '));
+					let valTCC= document.createElement('a');
+					valTCC.setAttribute('class', 'texto-padrao-link');
+					valTCC.setAttribute('title', 'TCC');
+					valTCC.setAttribute('data-toggle', 'tooltip');
+					valTCC.setAttribute('href', formacao.TCClink);
+					valTCC.appendChild(document.createTextNode(formacao.TCC));
+					lblTCC.appendChild(txtTCC);
+					lblTCC.appendChild(valTCC);
+					ulInstituto.appendChild(lblTCC);
+
+					li.appendChild(spanInstituto);
+					li.appendChild(ulInstituto);
+
 					formacoesList.appendChild(li);});
-						
+				
+				// Carrega Lista de Experiências com suas tags de exibição 
 				const experienciasList = document.getElementById('experiencias');
 				data.experiencias.forEach(experiencia => {
 					const li = document.createElement('li');
-		
-					li.innerHTML = 
-						`<span class="font-weight-bold border-bottom border-secondary">${experiencia.empresa}</span>
-						<ul>
-							<li><span class="font-weight-bold">Cargo: </span><span class="texto-destaque">${experiencia.cargo}</span></li>
-							<li><span class="font-weight-bold">Modalidade: </span>${experiencia.modalidade} </li>
-							<li><span class="font-weight-bold">Período: </span>${experiencia.periodo}</li>
-							<li><span class="font-weight-bold">Atividade Atual: </span>${experiencia.atividades}</li>
-						</ul>`;	
+
+					// Nome da Empresa
+					let spanEmpresa= document.createElement('span');;
+					spanEmpresa.setAttribute('class','font-weight-bold border-bottom border-secondary');
+					spanEmpresa.appendChild(document.createTextNode(experiencia.empresa));
+
+					// Dados
+					let ulEmpresa= document.createElement('ul');
+					spanEmpresa.appendChild(ulEmpresa);
+
+					//Cargo
+					let lblCargo= document.createElement('li');
+					let txtCargo= document.createElement('span');
+					txtCargo.setAttribute('class','font-weight-bold');	
+					txtCargo.appendChild(document.createTextNode('Cargo: '));
+					let valCargo= document.createElement('span');
+					valCargo.setAttribute('class','texto-destaque');	
+					valCargo.appendChild(document.createTextNode(experiencia.cargo));
+					lblCargo.appendChild(txtCargo);
+					lblCargo.appendChild(valCargo);
+					ulEmpresa.appendChild(lblCargo);
+
+					//Modalidade
+					let lblModalidade= document.createElement('li');
+					let spantxtModalidade= document.createElement('span');
+					spantxtModalidade.setAttribute('class','font-weight-bold');	
+					let txtModalidade= document.createTextNode('Modalidade: ');
+					spantxtModalidade.appendChild(txtModalidade);
+					let valModalidade= document.createElement('span');	
+					valModalidade.appendChild(document.createTextNode(experiencia.modalidade));
+					lblModalidade.appendChild(spantxtModalidade);
+					lblModalidade.appendChild(valModalidade);
+					ulEmpresa.appendChild(lblModalidade);
+					
+					//Período
+					let lblPeriodo= document.createElement('li');
+					let txtPeriodo= document.createElement('span');
+					txtPeriodo.setAttribute('class','font-weight-bold');	
+					txtPeriodo.appendChild(document.createTextNode('Período: '));
+					let valPeriodo= document.createElement('span');	
+					valPeriodo.appendChild(document.createTextNode(experiencia.periodo));
+					lblPeriodo.appendChild(txtPeriodo);
+					lblPeriodo.appendChild(valPeriodo);
+					ulEmpresa.appendChild(lblPeriodo);
+
+					//Atividades
+					let lblAtividades= document.createElement('li');
+					let spantxtAtividades= document.createElement('span');
+					spantxtAtividades.setAttribute('class','font-weight-bold');	
+					let txtAtividades= document.createTextNode('Atividades: ');
+					spantxtAtividades.appendChild(txtAtividades);
+					let valAtividades= document.createElement('span');	
+					let txtValAtividades= document.createTextNode(experiencia.atividades);
+					valAtividades.appendChild(txtValAtividades);
+					lblAtividades.appendChild(spantxtAtividades);
+					lblAtividades.appendChild(valAtividades);
+					ulEmpresa.appendChild(lblAtividades);
+					
+					li.appendChild(spanEmpresa);
+					li.appendChild(ulEmpresa);
+
 					experienciasList.appendChild(li);});
-						
+				
+				// Carrega Lista de Cursos Treinamentos Certificações com suas tags de exibição 
 				const CursosTreinamentosCertificacoesList = document.getElementById('CursosTreinamentosCertificacoes');
 				data.CursosTreinamentosCertificacoes.forEach(item => {
 					const li = document.createElement('li');
-					var link = `href="${item.link}"`;
-						
+
+					// Trata Link vazio do documento
+					var link = item.link;	
 					if(item.link == null ||
 					item.link == undefined ||
 					item.link.length == 0){
 					link= "";};
-						li.innerHTML = 
-							`<span class="font-weight-bold"> ${item.tipo}: </span> <a class="texto-destaque" ${link}>${item.nome}</a>, ${item.onde} <span class="font-weight-bold">${item.quando}</span>`;
+
+					// Tipo
+					let lblTipo= document.createElement('span');
+					lblTipo.setAttribute('class','font-weight-bold');
+					lblTipo.appendChild(document.createTextNode(item.tipo+': '));
+					li.appendChild(lblTipo);
+
+					// Nome
+					let lblNome= document.createElement('a');
+					lblNome.setAttribute('class','texto-destaque');
+					if (link.length > 0){lblNome.setAttribute('href',link)};
+					lblNome.appendChild(document.createTextNode(item.nome));
+					li.appendChild(lblNome);
+
+					// Onde
+					li.appendChild(document.createTextNode(', '+item.onde));
+
+					// Quando
+					let lblQuando= document.createElement('span');
+					lblQuando.setAttribute('class','font-weight-bold');
+					lblQuando.appendChild(document.createTextNode(item.quando));
+					li.appendChild(lblQuando);
+
 					CursosTreinamentosCertificacoesList.appendChild(li);});
 						
-					const InformacoesBasicasList = document.getElementById('InformacoesBasicas');
-					data.InformacoesBasicas.forEach(item => {
-						const li = document.createElement('li');
+				// Carrega Lista de Informações com suas tags de exibição 
+				const InformacoesBasicasList = document.getElementById('InformacoesBasicas');
+				data.InformacoesBasicas.forEach(item => {
+					const li = document.createElement('li');
+					
+					// Informação
+					li.appendChild(document.createTextNode(item));
 
-						li.innerHTML = item;
-						InformacoesBasicasList.appendChild(li);});	
+					InformacoesBasicasList.appendChild(li);});	
 				
 				const rodapeSite = document.getElementById('rodapeSite');
-				rodapeSite.innerHTML = data.rodapeSite
+				rodapeSite.appendChild(document.createTextNode(data.rodapeSite + ' (v20240627)'));
 			
-				document.getElementById('execute-json').remove();
+				// document.getElementById('execute-json').remove();
 			}
 
 			function converteDataBR(dateStr) {
@@ -195,11 +272,215 @@
     			return idade;
 			}
 
-			function alterarFonte(dados) {
-           		var elementos;
+			function carregarPaginaInicial(){
+				// ----  HEADER ----- Cabeçalho do Site
+				let header = document.getElementById('cabecalhoSite');
 
-				elementos = document.querySelectorAll(".titulo-site");
-            	elementos.forEach(function(elemento){
+				// Botão Imprimir
+				let btnImprimir = document.createElement('button');
+    			btnImprimir.setAttribute('class', 'btn btn-outline-secondary btn-lg btn-block');
+    			btnImprimir.setAttribute('id', 'imprimir');
+
+				// Texto e Ícone do Botão Imprimir
+				let spanImprimir = document.createElement('span');
+				let iconImprimir = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    			iconImprimir.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    			iconImprimir.setAttribute('width', '16');
+    			iconImprimir.setAttribute('height', '16');
+    			iconImprimir.setAttribute('fill', 'currentColor');
+    			iconImprimir.setAttribute('class', 'bi bi-printer-fill');
+    			iconImprimir.setAttribute('viewBox', '0 0 16 16');
+				let path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+				path1.setAttribute('d', 'M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1');
+				let path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+				path2.setAttribute('d', 'M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1');
+				iconImprimir.appendChild(path1);
+				iconImprimir.appendChild(path2);
+				spanImprimir.appendChild(iconImprimir);
+				btnImprimir.appendChild(spanImprimir);
+				btnImprimir.appendChild(document.createTextNode(' Imprimir'));
+
+				//Adicionar botão Imprimir no header
+				header.appendChild(btnImprimir);
+
+				// ----  MAIN ----- Conteúdo do Site
+				let main = document.getElementById('conteudoSite');
+
+				// Grupo do cabeçalho
+				let hgroupSite = document.createElement('hgroup');
+				hgroupSite.setAttribute('class', 'clearfix mx-5 mt-3');
+
+				// Atualizado em:
+				let h6AtualizadoEm = document.createElement('h6');
+				h6AtualizadoEm.setAttribute('id', 'atualizadoEm');
+				h6AtualizadoEm.setAttribute('class', 'ml-3 float-left');
+				hgroupSite.appendChild(h6AtualizadoEm);
+
+				// Título:
+				let h1AtualizadoEm = document.createElement('p'); // hgroup não aceita 2 cabeçalho dentro da tag.
+				h1AtualizadoEm.setAttribute('id', 'titulo');
+				h1AtualizadoEm.setAttribute('class', 'titulo-site float-right text-right h1 mr-4 font-weight-normal font-italic');
+				hgroupSite.appendChild(h1AtualizadoEm);
+
+				// Título:
+				let cardDadosPrincipais = document.createElement('div');
+				cardDadosPrincipais.setAttribute('class', 'card mx-5 border-top-0 border-right-0 border-left-0');
+
+				// DADOS PRINCIPAIS
+				let cardbodyDadosPrincipais = document.createElement('div');
+				cardbodyDadosPrincipais.setAttribute('class', 'card-body');
+				cardDadosPrincipais.appendChild(cardbodyDadosPrincipais);
+
+				//Nome
+				let lblNome = document.createElement('p');
+				lblNome.setAttribute('id', 'nome');
+				lblNome.setAttribute('class', 'titulo-principal card-title h1 w-auto border-bottom border-secondary');
+				cardbodyDadosPrincipais.appendChild(lblNome);
+
+				//Idade
+				let lblIdade = document.createElement('p');
+				lblIdade.setAttribute('class', 'm-0 p-0');
+				let txtIdade = document.createElement('span');
+				txtIdade.setAttribute('class', 'font-weight-bold');
+				let valIdade = document.createElement('span');
+				valIdade.setAttribute('id', 'idade');
+				txtIdade.appendChild(document.createTextNode('Idade: '));
+				lblIdade.appendChild(txtIdade);
+				lblIdade.appendChild(valIdade);
+				cardbodyDadosPrincipais.appendChild(lblIdade);
+
+				//Estado Cívil
+				let lblEstadoCivil = document.createElement('p');
+				lblEstadoCivil.setAttribute('class', 'm-0 p-0');
+				let txtEstadoCivil = document.createElement('span');
+				txtEstadoCivil.setAttribute('class', 'font-weight-bold');
+				let valEstadoCivil = document.createElement('span');
+				valEstadoCivil.setAttribute('id', 'estadoCivil');
+				txtEstadoCivil.appendChild(document.createTextNode('Estado Cívil: '));
+				lblEstadoCivil.appendChild(txtEstadoCivil);
+				lblEstadoCivil.appendChild(valEstadoCivil);
+				cardbodyDadosPrincipais.appendChild(lblEstadoCivil);
+				
+				//E-mail Pessoal
+				let lblEmail = document.createElement('p');
+				lblEmail.setAttribute('class', 'm-0 p-0');
+				let txtEmail = document.createElement('span');
+				txtEmail.setAttribute('class', 'font-weight-bold');
+				let valEmail = document.createElement('a');
+				valEmail.setAttribute('id', 'email');
+				valEmail.setAttribute('class', 'texto-padrao-link');
+				valEmail.setAttribute('title', 'E-mail pessoal');
+				valEmail.setAttribute('data-toggle', 'tooltip');
+				valEmail.setAttribute('href', '');
+				txtEmail.appendChild(document.createTextNode('E-mail Pessoal: '));
+				lblEmail.appendChild(txtEmail);
+				lblEmail.appendChild(valEmail);
+				cardbodyDadosPrincipais.appendChild(lblEmail);
+
+				//LinkedIn
+				let lblLinkedIn = document.createElement('p');
+				lblLinkedIn.setAttribute('class', 'm-0 p-0');
+				let txtLinkedIn = document.createElement('span');
+				txtLinkedIn.setAttribute('class', 'font-weight-bold');
+				let valLinkedIn= document.createElement('a');
+				valLinkedIn.setAttribute('id', 'linkedIn');
+				valLinkedIn.setAttribute('class', 'texto-padrao-link');
+				valLinkedIn.setAttribute('title', 'LinkedIn');
+				valLinkedIn.setAttribute('data-toggle', 'tooltip');
+				valLinkedIn.setAttribute('href', '');
+				txtLinkedIn.appendChild(document.createTextNode('LinkedIn: '));
+				lblLinkedIn.appendChild(txtLinkedIn);
+				lblLinkedIn.appendChild(valLinkedIn);
+				cardbodyDadosPrincipais.appendChild(lblLinkedIn);
+
+				// FORMAÇÃO ACADÊMICA
+				// Card
+				let cardFormacoes = document.createElement('div');
+				cardFormacoes.setAttribute('class', 'card mx-5 border-top-0 border-right-0 border-left-0');
+				let cardbodyFormacoes = document.createElement('div');
+				cardbodyFormacoes.setAttribute('class', 'card-body');
+				cardFormacoes.appendChild(cardbodyFormacoes);
+
+				//Título e Dados
+				let lblFormacoes = document.createElement('div');
+				lblFormacoes.setAttribute('class', 'titulo-secundario card-title h4 font-weight-bold');
+				lblFormacoes.appendChild(document.createTextNode('FORMAÇÃO ACADÊMICA'));
+				let listaFormacoes = document.createElement('ul');
+				listaFormacoes.setAttribute('id', 'formacoes');
+				listaFormacoes.setAttribute('style', 'list-style-type: square;');
+				cardbodyFormacoes.appendChild(lblFormacoes);
+				cardbodyFormacoes.appendChild(listaFormacoes);
+
+				// EXPERIÊNCIAS PROFISSIONAIS
+				// Card
+				let cardExperiencias = document.createElement('div');
+				cardExperiencias.setAttribute('class', 'card mx-5 border-top-0 border-right-0 border-left-0');
+				let cardbodyExperiencias = document.createElement('div');
+				cardbodyExperiencias.setAttribute('class', 'card-body');
+				cardExperiencias.appendChild(cardbodyExperiencias);
+
+				//Título e Dados
+				let lblExperiencias = document.createElement('div');
+				lblExperiencias.setAttribute('class', 'titulo-secundario card-title h4 font-weight-bold');
+				lblExperiencias.appendChild(document.createTextNode('EXPERIÊNCIAS PROFISSIONAIS'));
+				let listaExperiencias = document.createElement('ul');
+				listaExperiencias.setAttribute('id', 'experiencias');
+				listaExperiencias.setAttribute('style', 'list-style-type: square;');
+				cardbodyExperiencias.appendChild(lblExperiencias);
+				cardbodyExperiencias.appendChild(listaExperiencias);
+
+				// CURSOS, TREINAMENTOS E CERTIFICAÇÕES
+				// Card
+				let cardCursosTreinamentosCertificacoes = document.createElement('div');
+				cardCursosTreinamentosCertificacoes.setAttribute('class', 'card mx-5 border-top-0 border-right-0 border-left-0');
+				let cardbodyCursosTreinamentosCertificacoes = document.createElement('div');
+				cardbodyCursosTreinamentosCertificacoes.setAttribute('class', 'card-body');
+				cardCursosTreinamentosCertificacoes.appendChild(cardbodyCursosTreinamentosCertificacoes);
+
+				//Título e Dados
+				let lblCursosTreinamentosCertificacoes = document.createElement('div');
+				lblCursosTreinamentosCertificacoes.setAttribute('class', 'titulo-secundario card-title h4 font-weight-bold');
+				lblCursosTreinamentosCertificacoes.appendChild(document.createTextNode('CURSOS, TREINAMENTOS E CERTIFICAÇÕES'));
+				let listaCursosTreinamentosCertificacoes = document.createElement('ul');
+				listaCursosTreinamentosCertificacoes.setAttribute('id', 'CursosTreinamentosCertificacoes');
+				listaCursosTreinamentosCertificacoes.setAttribute('style', 'list-style-type: square;');
+				cardbodyCursosTreinamentosCertificacoes.appendChild(lblCursosTreinamentosCertificacoes);
+				cardbodyCursosTreinamentosCertificacoes.appendChild(listaCursosTreinamentosCertificacoes);
+
+				// INFORMAÇÕES BÁSICAS
+				// Card
+				let cardInformacoesBasicas = document.createElement('div');
+				cardInformacoesBasicas.setAttribute('class', 'card mx-5 border-top-0 border-right-0 border-left-0');
+				let cardbodyInformacoesBasicas = document.createElement('div');
+				cardbodyInformacoesBasicas.setAttribute('class', 'card-body');
+				cardInformacoesBasicas.appendChild(cardbodyInformacoesBasicas);
+
+				//Título e Dados
+				let lblInformacoesBasicas = document.createElement('div');
+				lblInformacoesBasicas.setAttribute('class', 'titulo-secundario card-title h4 font-weight-bold');
+				lblInformacoesBasicas.appendChild(document.createTextNode('INFORMAÇÕES BÁSICAS'));
+				let listaInformacoesBasicas = document.createElement('ul');
+				listaInformacoesBasicas.setAttribute('id', 'InformacoesBasicas');
+				listaInformacoesBasicas.setAttribute('style', 'list-style-type: square;');
+				cardbodyInformacoesBasicas.appendChild(lblInformacoesBasicas);
+				cardbodyInformacoesBasicas.appendChild(listaInformacoesBasicas);
+
+				// Incluir informações no main
+				main.appendChild(hgroupSite);
+				main.appendChild(cardDadosPrincipais);
+				main.appendChild(cardFormacoes);
+				main.appendChild(cardExperiencias);
+				main.appendChild(cardCursosTreinamentosCertificacoes);
+				main.appendChild(cardInformacoesBasicas);
+
+				// FOOTER - Rodapé do Site
+				let footer = document.getElementById('rodapeSite');
+			}
+
+			function alterarFonte(dados) {
+           		var elementos= document.querySelectorAll(".titulo-site");
+            	
+				elementos.forEach(function(elemento){
 					elemento.style.fontFamily = dados.tituloSite;
 					elemento.classList.add(dados.tituloSiteCor);
 					});
