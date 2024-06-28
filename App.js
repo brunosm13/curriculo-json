@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const PORT = process.env.PORT || 3000; // Define a porta onde o servidor irá escutar
+const PORT = process.env.PORT || 8080; // Define a porta onde o servidor irá escutar
 
 // Middleware para servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));

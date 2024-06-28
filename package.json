@@ -1,13 +1,10 @@
 {
   "name": "curriculo-json",
-  "lockfileVersion": 3,
-  "requires": true,
-  "packages": {},
+  "version": "1.0.0",
+  "description": "Projeto Node.js para servir arquivos JSON",
+  "main": "App.js",
   "scripts": {
-    "start": "http-server ./public -p 8080"
-  },
-  "devDependencies": {
-    "http-server": "^14.1.1"
+    "start": "node App.js"
   },
   "dependencies": {
     "express": "^4.19.2"
