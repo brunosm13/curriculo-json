@@ -15,13 +15,13 @@ class HtmlBootstrap{
         ul: 'ul'
     };
 
-    // Para identificar qual o SVG que vai utilizar no botão
-    static icone= {
+    // Para identificar qual a função que vai utilizar no botão
+    static funcao= {
         imprimir: 'imprimir'
     };
 
     // cria um elemento de acordo com o que é passado
-    static criarElemento(tag, classes=null, texto=null, link=null){
+    static criarElemento(tag, classes=null, texto=null, link=null, title=null, dataToggle=null){
         let elemento= document.createElement(tag);
         if(!this.validarArgumento(classes))
 		    elemento.setAttribute('class',classes);
@@ -29,24 +29,29 @@ class HtmlBootstrap{
             elemento.appendChild(document.createTextNode(texto));
         if(!this.validarArgumento(link))
             elemento.setAttribute('href',link);
+        if(!this.validarArgumento(title))
+            elemento.setAttribute('title',title);
+        if(!this.validarArgumento(dataToggle))
+            elemento.setAttribute('data-togle',dataToggle);
 
         return elemento;
     };
 
     // cria um elemento com ID
-    static criarElementoId(tag, classes, id, texto=null, link=null){
-        let elemento= this.criarElemento(tag, classes, texto, link);
+    static criarElementoId(tag, id, classes=null,  texto=null, link=null, title=null, dataToggle=null){
+        let elemento= this.criarElemento(tag, classes, texto, link, title, dataToggle);
         elemento.setAttribute('id',id);
 
         return elemento;
     };
 
     // cria um botão bootstrap
-    static criarButton(id, classes, texto, icone=null){
-        let button= this.criarElementoId(this.tag.button,'btn '+classes, id);
+    static criarButton(id, classes, texto, funcao=null){
+        let button= this.criarElementoId(this.tag.button,id,'btn '+classes);
                
-        switch(icone){
-            case this.icone.imprimir:
+        switch(funcao){
+            case this.funcao.imprimir:
+                //ícone
                 let span= this.criarElemento(this.tag.span);
                 let iconImprimir = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     			iconImprimir.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -63,13 +68,17 @@ class HtmlBootstrap{
 				iconImprimir.appendChild(path2);
                 span.appendChild(iconImprimir);
                 button.appendChild(span);
+                //função
+                button.addEventListener('click', function() {
+                    window.print();
+                });
                 break;
 
             default:
-                throw new Error("Ícone não encontrado.");
+                throw new Error("Função não encontrada. Por favor, configure a nova função.");
         };
 
-        if(!this._validaArgumento(texto))
+        if(!this.validarArgumento(texto))
             button.appendChild(document.createTextNode(texto));
 
         return button;  
