@@ -21,7 +21,7 @@ class HtmlBootstrap{
     };
 
     // cria um elemento de acordo com o que é passado
-    static criarElemento(tag, classes=null, texto=null, link=null, title=null, dataToggle=null){
+    static criarElemento(tag, classes=null, texto=null, link=null, title=null, dataToggle=null, style=null){
         let elemento= document.createElement(tag);
         if(!this.validarArgumento(classes))
 		    elemento.setAttribute('class',classes);
@@ -33,13 +33,14 @@ class HtmlBootstrap{
             elemento.setAttribute('title',title);
         if(!this.validarArgumento(dataToggle))
             elemento.setAttribute('data-togle',dataToggle);
-
+        if(!this.validarArgumento(style))
+            elemento.setAttribute('style',style);
         return elemento;
     };
 
     // cria um elemento com ID
-    static criarElementoId(tag, id, classes=null,  texto=null, link=null, title=null, dataToggle=null){
-        let elemento= this.criarElemento(tag, classes, texto, link, title, dataToggle);
+    static criarElementoId(tag, id, classes=null,  texto=null, link=null, title=null, dataToggle=null, style=null){
+        let elemento= this.criarElemento(tag, classes, texto, link, title, dataToggle, style);
         elemento.setAttribute('id',id);
 
         return elemento;
@@ -97,8 +98,11 @@ class HtmlBootstrap{
     };
 
     // Cria um card title
-    static criarCardTitle(texto, classes=null){
+    static criarCardTitle(texto, classes=null, id=null){
         let cardtitle= this.criarElemento(this.tag.div, 'card-title '+classes, texto);
+        if (!this.validarArgumento(id))
+            cardtitle.setAttribute('id', id);
+
         return cardtitle;
     };
 
