@@ -63,3 +63,35 @@ export default Util;
 // No arquivo onde você deseja usar a classe Util
 import Util from './caminho/para/Util';
 ```
+# HtmlBootstrap
+
+Esta classe `HtmlBootstrap` facilita a criação de elementos HTML com classes do Bootstrap.
+
+## Métodos
+
+### `static criarElemento(tag, classes=null, texto=null, link=null, title=null, dataToggle=null, style=null)`
+
+Cria um elemento HTML de acordo com os parâmetros fornecidos.
+
+#### Parâmetros
+
+- `tag` (string): A tag do elemento HTML (e.g., 'div', 'span').
+- `classes` (string, opcional): Classes CSS a serem aplicadas ao elemento.
+- `texto` (string, opcional): Texto a ser inserido no elemento.
+- `link` (string, opcional): URL para elementos de link.
+- `title` (string, opcional): Título do elemento.
+- `dataToggle` (string, opcional): Atributo data-toggle.
+- `style` (string, opcional): Estilos CSS a serem aplicados ao elemento.
+
+#### Retorno
+
+- `HTMLElement`: O elemento HTML criado.
+
+#### Exemplo de Uso
+
+```javascript
+import HtmlBootstrap from './HtmlBootstrap';
+
+const div = HtmlBootstrap.criarElemento('div', 'my-class', 'Hello World');
+document.body.appendChild(div);
+```
