@@ -18,6 +18,9 @@ O projeto está organizado da seguinte maneira:
 
 - **server:** Contém todos os arquivos relacionados ao backend, incluindo a lógica de negócios e acesso aos dados (DAO e SAO).
 
+## Objetivo do Projeto
+Facilitar a vida de trabalhadores na geração de currículo com um formato padronizado onde o foco seja simplicidade e objetividade.
+
 ## Como Usar
 
 1. **Instale o Node.js:**
