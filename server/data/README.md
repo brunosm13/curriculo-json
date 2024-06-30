@@ -32,7 +32,70 @@ Este JSON é utilizado para carregar as informações do currículo. Os atributo
 - **rodapeSite**: Informação sobre quem desenvolveu o site, incluindo tecnologias utilizadas.
 
 Este JSON pode ser editado manualmente por quem possui acesso ao projeto para atualizar as informações conforme necessário.
+
+## Exemplo
+
+```json
+{
+	"atualizadoEm": "Última atualização em junho de 2024",
+	"titulo": "CURRICULUM VITAE",
+	"nome": "Ana Carolina Santos",
+	"dataNascimento": "15/09/1985",
+	"estadoCivil": "Casada",
+	"emailPessoal": "ana.carol.santos@gmail.com",
+	"linkedIn": "https://www.linkedin.com/in/anacarolsantos/",
+	"formacoes": [
+		{
+			"instituto": "Universidade Federal de São Paulo",
+			"area": "Bacharelado em Engenharia de Produção",
+			"concluidoEm": "2010"
+		},
+		{
+			"instituto": "Instituto Brasileiro de Contabilidade",
+			"area": "Curso Técnico em Contabilidade",
+			"concluidoEm": "2005"
+		}
+	],
+	"experiencias": [
+		{
+			"empresa": "Tech Solutions Ltda.",
+			"cargo": "Gerente de Projetos",
+			"modalidade": "Presencial",
+			"periodo": "março de 2015 até o momento",
+			"atividades": "Coordenação de equipes de desenvolvimento, gerenciamento de projetos de TI, análise de requisitos e implementação de soluções tecnológicas."
+		},
+		{
+			"empresa": "Consultoria ABC",
+			"cargo": "Analista Financeiro",
+			"modalidade": "Presencial",
+			"periodo": "janeiro de 2012 a fevereiro de 2015",
+			"atividades": "Análise de crédito, gestão de fluxo de caixa, elaboração de relatórios financeiros e controle de custos."
+		}
+	],
+	"CursosTreinamentosCertificacoes": [
+		{
+			"tipo": "Curso",
+			"nome": "Gestão Ágil de Projetos",
+			"onde": "Coursera",
+			"quando": "2022"
+		},
+		{
+			"tipo": "Certificado",
+			"nome": "PMP (Project Management Professional)",
+			"onde": "Project Management Institute",
+			"quando": "2018"
+		}
+	],
+	"InformacoesBasicas": [
+		"Fluente em inglês",
+		"Experiência em gestão de equipes multidisciplinares",
+		"Conhecimentos avançados em Excel"
+	],
+	"rodapeSite": ""
+}
+```
 </details>
+
 
 # fonte-config.json
 
