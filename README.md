@@ -2,14 +2,6 @@
 
 Este é um projeto para exibir um currículo online utilizando Node.js, HTML e Bootstrap. Ele carrega dados dinamicamente a partir de arquivos JSON para construir a página de currículo.
 
-## Bibliotecas
-- **Dados:** JSON
-- **Frontend:** HTML5
-- **Frontend:** Bootstrap v4.1.3
-- **Backend:** Javascript
-- **Backend:** Node.js v20.15.0 (LTS)
-- **Backend:** Express v5.0
-
 ## Estrutura do Projeto
 
 O projeto está organizado da seguinte maneira:
@@ -19,9 +11,18 @@ O projeto está organizado da seguinte maneira:
 - `server`: Contém todos os arquivos relacionados ao backend, incluindo a lógica de negócios e acesso aos dados (DAO e SAO).
 
 - `App.js`: Esse arquivo é o ponto de entrada principal da aplicação Node.js. Ele configura e inicializa o servidor Express, define as rotas e gerencia o middleware. Basicamente, é o responsável por iniciar a aplicação e lidar com as solicitações e respostas HTTP._Obs: por convenção e clareza, este arquivo deve ser mantido na raiz._
+- `node_module`, `package.json` e `package_lock.json`, são arquivos de configuração do Node.js.
 
 ## Objetivo do Projeto
 Facilitar a vida de trabalhadores na geração de currículo com um formato padronizado onde o foco seja simplicidade e objetividade.
+
+## Bibliotecas
+- **Dados:** JSON
+- **Frontend:** HTML5
+- **Frontend:** Bootstrap v4.1.3
+- **Backend:** Javascript
+- **Backend:** Node.js v20.15.0 (LTS)
+- **Backend:** Express v5.0
 
 ## Como Usar
 
