@@ -5,7 +5,7 @@ A pasta public é dedicada a todos os arquivos que serão servidos diretamente a
 ## Estrutura de Pastas
 
 ### `css`
-A pasta `css` contém os arquivos de estilos CSS utilizados na aplicação. Estes arquivos definem o layout, cores, fontes e outros aspectos visuais da interface.
+A pasta `css` contém os arquivos de estilos CSS utilizados na aplicação. Estes arquivos definem o layout, cores, fontes e outros aspectos visuais da interface. A maioria dos arquivos aqui são parte do framework Bootstrap, que é usado para fornecer um design responsivo e componentes prontos para uso.
 
 ### `js`
 A pasta `js` contém os arquivos JavaScript que implementam a lógica de front-end da aplicação. Esses arquivos são responsáveis por manipular o DOM, fazer requisições AJAX e interagir com o usuário.
