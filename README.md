@@ -3,11 +3,12 @@
 Este é um projeto para exibir um currículo online utilizando Node.js, HTML e Bootstrap. Ele carrega dados dinamicamente a partir de arquivos JSON para construir a página de currículo.
 
 ## Bibliotecas
-- JSON
-- HTML
-- Bootstrap v4.1.3
-- Node.js v20.15.0 (LTS)
-- Express v5.0
+- **Dados:** JSON
+- **Frontend:** HTML
+- **Frontend:** Bootstrap v4.1.3
+- **Backend:** Javascript
+- **Backend:** Node.js v20.15.0 (LTS)
+- **Backend:** Express v5.0
 
 ## Como Usar
 
