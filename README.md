@@ -7,6 +7,7 @@ Este é um projeto para exibir um currículo online utilizando Node.js, HTML e B
 - HTML
 - Bootstrap v4.1.3
 - Node.js v20.15.0 (LTS)
+- Express v5.0
 
 ## Como Usar
 
