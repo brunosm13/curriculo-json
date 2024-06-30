@@ -91,7 +91,7 @@ Este JSON pode ser editado manualmente por quem possui acesso ao projeto para at
 		"Experiência em gestão de equipes multidisciplinares",
 		"Conhecimentos avançados em Excel"
 	],
-	"rodapeSite": ""
+	"rodapeSite":"Desenvolvido por Bruno Silva Macário utilizando Bootstrap v4.1.3 + Javascript + JSON"
 }
 ```
 </details>
