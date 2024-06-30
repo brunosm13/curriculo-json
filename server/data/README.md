@@ -117,5 +117,24 @@ Este JSON define as configurações de fontes e cores utilizadas no currículo, 
 
 Essas definições são aplicadas no currículo para garantir consistência visual e estilística utilizando as tecnologias mencionadas.
 
-Este JSON pode ser ajustado conforme necessário para modificar as fontes e cores do currículo conforme especificado.
+Este JSON pode ser ajustado conforme necessário para modificar as fontes e cores do currículo conforme especificado
+
+## Exemplo
+```json
+{
+	"tituloSite": "Roboto, sans-serif",
+	"tituloSiteCor": "text-primary",
+	"tituloPrincipal": "Montserrat, sans-serif",
+	"tituloPrincipalCor": "text-dark",
+	"tituloSecundario": "Arial, sans-serif",
+	"tituloSecundarioCor": "text-muted",
+	"textoDestaque": "Open Sans, sans-serif",
+	"textoDestaqueCor": "text-success",
+	"textoPadrao": "Lato, sans-serif",
+	"textoPadraoCor": "text-body",
+	"textoPadraoLink": "Roboto Condensed, sans-serif",
+	"textoPadraoLinkCor": "text-primary"
+}
+```
+
 </details>
