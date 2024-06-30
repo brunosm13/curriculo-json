@@ -62,3 +62,4 @@ export default Util;
 
 // No arquivo onde você deseja usar a classe Util
 import Util from './caminho/para/Util';
+```
