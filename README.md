@@ -27,6 +27,10 @@ Este é um projeto para exibir um currículo online utilizando Node.js, HTML e B
      cd curriculo-json
      npm install
      ```
+   - Instale também o serviço do express utilizado no App.js:
+     ```
+     npm install express
+     ```
 
 4. **Executar o servidor:**
    - Após instalar as dependências, execute o servidor Node.js Express. O arquivo principal está na pasta raiz, então você pode iniciar o servidor assim:
