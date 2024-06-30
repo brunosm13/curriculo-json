@@ -11,7 +11,7 @@ O projeto está organizado da seguinte maneira:
 - `server`: Contém todos os arquivos relacionados ao backend, incluindo a lógica de negócios e acesso aos dados (DAO e SAO).
 
 - `App.js`: Esse arquivo é o ponto de entrada principal da aplicação Node.js. Ele configura e inicializa o servidor Express, define as rotas e gerencia o middleware. Basicamente, é o responsável por iniciar a aplicação e lidar com as solicitações e respostas HTTP._Obs: por convenção e clareza, este arquivo deve ser mantido na raiz._
-- `node_module`, `package.json` e `package_lock.json`, são arquivos de configuração do Node.js.
+- `node_modules`, `package.json` e `package_lock.json`, são arquivos de configuração do Node.js.
 
 ## Objetivo do Projeto
 Facilitar a vida de trabalhadores na geração de currículo com um formato padronizado onde o foco seja simplicidade e objetividade.
