@@ -19,5 +19,5 @@ Aqui estão os arquivos de visualização (views) que definem a estrutura e apre
 ### `service`
 Esta pasta contém os serviços que encapsulam a lógica de negócios. Os serviços são responsáveis por manipular dados e implementar a lógica principal do aplicativo.
 
-### 6. `controller`
+### `controller`
 Os controladores estão localizados nesta pasta. Eles recebem as solicitações das rotas, interagem com os serviços para processar os dados e retornam a resposta adequada ao cliente.
