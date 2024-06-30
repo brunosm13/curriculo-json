@@ -1,24 +1,25 @@
-# `/server/util/Util`
+# `/server/util`
+## `Util`
 
 Esta classe `Util` fornece métodos utilitários para conversão de datas no formato brasileiro e cálculo de idade.
 <details>
 
-## Métodos
+### Métodos
 
-### `static converteDataBR(dataTexto)`
+#### `static converteDataBR(dataTexto)`
 
 Converte uma data no formato brasileiro (dd/mm/yyyy) para um objeto `Date` do JavaScript.
 
-#### Parâmetros
+##### Parâmetros
 
 - `dataTexto` (string): A data no formato "dd/mm/yyyy".
 
-#### Retorno
+##### Retorno
 
 - `Date`: Um objeto `Date` correspondente.
 
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 import Util from './Util';
@@ -27,19 +28,19 @@ const data = Util.converteDataBR('30/06/2024');
 console.log(data); // Saída: Sun Jun 30 2024 00:00:00 GMT-0300 (Horário Padrão de Brasília)
 ```
 
-### `static calcularIdade(dataNascimento)`
+#### `static calcularIdade(dataNascimento)`
 
 Calcula a idade com base na data de nascimento fornecida.
 
-#### Parâmetros
+##### Parâmetros
 
 - `dataNascimento` (Date): Um objeto `Date` representando a data de nascimento.
 
-#### Retorno
+##### Retorno
 
 - `number`: A idade calculada.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 import Util from './Util';
@@ -48,12 +49,12 @@ const dataNascimento = Util.converteDataBR('15/04/1990');
 const idade = Util.calcularIdade(dataNascimento);
 console.log(idade); // Saída: A idade calculada com base na data atual
 ```
-## Notas
+### Notas
 
 - O método `converteDataBR` assume que o formato da data de entrada é sempre "dd/mm/yyyy".
 - O método `calcularIdade` leva em consideração as diferenças de meses e dias ao calcular a idade.
 
-## Instalação
+### Instalação
 
 Certifique-se de que a classe `Util` está exportada corretamente no seu arquivo e importada onde necessário.
 
@@ -66,19 +67,19 @@ import Util from './caminho/para/Util';
 ```
 </details>
 
-# `/server/util/HtmlBootstrap`
+## `HtmlBootstrap`
 
 Esta classe `HtmlBootstrap` facilita a criação de elementos HTML com classes do Bootstrap.
 
 <details>
 
-## Métodos
+### Métodos
 
-### `static criarElemento(tag, classes=null, texto=null, link=null, title=null, dataToggle=null, style=null)`
+#### `static criarElemento(tag, classes=null, texto=null, link=null, title=null, dataToggle=null, style=null)`
 
 Cria um elemento HTML de acordo com os parâmetros fornecidos.
 
-#### Parâmetros
+##### Parâmetros
 
 - `tag` (string): A tag do elemento HTML (e.g., 'div', 'span').
 - `classes` (string, opcional): Classes CSS a serem aplicadas ao elemento.
@@ -88,11 +89,11 @@ Cria um elemento HTML de acordo com os parâmetros fornecidos.
 - `dataToggle` (string, opcional): Atributo data-toggle.
 - `style` (string, opcional): Estilos CSS a serem aplicados ao elemento.
 
-#### Retorno
+##### Retorno
 
 - `HTMLElement`: O elemento HTML criado.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 import HtmlBootstrap from './HtmlBootstrap';
@@ -100,11 +101,11 @@ import HtmlBootstrap from './HtmlBootstrap';
 const div = HtmlBootstrap.criarElemento('div', 'my-class', 'Hello World');
 document.body.appendChild(div);
 ```
-### `static criarElementoId(tag, id, classes=null, texto=null, link=null, title=null, dataToggle=null, style=null)`
+#### `static criarElementoId(tag, id, classes=null, texto=null, link=null, title=null, dataToggle=null, style=null)`
 
 Cria um elemento HTML com um ID específico.
 
-#### Parâmetros
+##### Parâmetros
 
 - `tag` (string): A tag do elemento HTML.
 - `id` (string): O ID do elemento.
@@ -115,106 +116,106 @@ Cria um elemento HTML com um ID específico.
 - `dataToggle` (string, opcional): Atributo data-toggle.
 - `style` (string, opcional): Estilos CSS a serem aplicados ao elemento.
 
-#### Retorno
+##### Retorno
 
 - `HTMLElement`: O elemento HTML criado.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 const divComId = HtmlBootstrap.criarElementoId('div', 'unique-id', 'my-class', 'Hello World');
 document.body.appendChild(divComId);
 ```
-### `static criarButton(id, classes, texto, funcao=null)`
+#### `static criarButton(id, classes, texto, funcao=null)`
 
 Cria um botão do Bootstrap.
 
-#### Parâmetros
+##### Parâmetros
 
 - `id` (string): O ID do botão.
 - `classes` (string): Classes CSS a serem aplicadas ao botão.
 - `texto` (string): Texto do botão.
 - `funcao` (string, opcional): Função específica a ser aplicada ao botão (e.g., 'imprimir').
 
-#### Retorno
+##### Retorno
 
 - `HTMLElement`: O botão criado.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 const button = HtmlBootstrap.criarButton('print-btn', 'btn-primary', 'Imprimir', HtmlBootstrap.funcao.imprimir);
 document.body.appendChild(button);
 ```
-### `static criarCard(classes=null)`
+#### `static criarCard(classes=null)`
 
 Cria um card do Bootstrap.
 
-#### Parâmetros
+##### Parâmetros
 
 - `classes` (string, opcional): Classes CSS a serem aplicadas ao card.
 
-#### Retorno
+##### Retorno
 
 - `HTMLElement`: O card criado.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 const card = HtmlBootstrap.criarCard('custom-card');
 document.body.appendChild(card);
 ```
-### `static criarCardBody(classes=null)`
+#### `static criarCardBody(classes=null)`
 
 Cria o corpo de um card do Bootstrap.
 
-#### Parâmetros
+##### Parâmetros
 
 - `classes` (string, opcional): Classes CSS a serem aplicadas ao corpo do card.
 
-#### Retorno
+##### Retorno
 
 - `HTMLElement`: O corpo do card criado.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 const cardBody = HtmlBootstrap.criarCardBody('custom-body');
 document.body.appendChild(cardBody);
 ```
-### `static criarCardTitle(texto, classes=null, id=null)`
+#### `static criarCardTitle(texto, classes=null, id=null)`
 
 Cria um título de card do Bootstrap.
 
-#### Parâmetros
+##### Parâmetros
 
 - `texto` (string): O texto do título.
 - `classes` (string, opcional): Classes CSS a serem aplicadas ao título.
 - `id` (string, opcional): O ID do título.
 
-#### Retorno
+##### Retorno
 
 - `HTMLElement`: O título do card criado.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 const cardTitle = HtmlBootstrap.criarCardTitle('Título do Card', 'custom-title', 'card-title-id');
 document.body.appendChild(cardTitle);
 ```
-### `static validarArgumento(argumento)`
+#### `static validarArgumento(argumento)`
 
 Verifica se o argumento está vazio, nulo ou em branco.
 
-#### Parâmetros
+##### Parâmetros
 
 - `argumento` (any): O argumento a ser verificado.
 
-#### Retorno
+##### Retorno
 
 - `boolean`: `true` se o argumento for vazio, nulo ou em branco; caso contrário, `false`.
 
-#### Exemplo de Uso
+##### Exemplo de Uso
 
 ```javascript
 const isEmpty = HtmlBootstrap.validarArgumento('');
@@ -223,7 +224,7 @@ console.log(isEmpty); // Saída: true
 const isNotEmpty = HtmlBootstrap.validarArgumento('Hello');
 console.log(isNotEmpty); // Saída: false
 ```
-## Notas
+### Notas
 
 - A classe `HtmlBootstrap` simplifica a criação de elementos HTML utilizando as classes do Bootstrap.
 - Ela oferece métodos configuráveis para criar botões, cards e outros elementos estilizados de forma eficiente.
