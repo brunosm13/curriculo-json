@@ -1,6 +1,8 @@
 # Util
 
 Esta classe `Util` fornece métodos utilitários para conversão de datas no formato brasileiro e cálculo de idade.
+<details>
+<summary>Mais informações</summary>
 
 ## Métodos
 
@@ -63,9 +65,14 @@ export default Util;
 // No arquivo onde você deseja usar a classe Util
 import Util from './caminho/para/Util';
 ```
+</details>
+
 # HtmlBootstrap
 
 Esta classe `HtmlBootstrap` facilita a criação de elementos HTML com classes do Bootstrap.
+
+<details>
+<summary>Mais informações</summary>
 
 ## Métodos
 
@@ -235,3 +242,4 @@ export default HtmlBootstrap;
 // Exemplo de importação em outro arquivo
 import HtmlBootstrap from './caminho/para/HtmlBootstrap';
 ```
+</details>
