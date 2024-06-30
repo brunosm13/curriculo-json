@@ -33,3 +33,26 @@ Este JSON é utilizado para carregar as informações do currículo. Os atributo
 
 Este JSON pode ser editado manualmente por quem possui acesso ao projeto para atualizar as informações conforme necessário.
 </details>
+
+# fonte-config.json
+
+<details>
+Este JSON define as configurações de fontes e cores utilizadas no currículo, incorporando informações do Bootstrap, HTML e CSS.
+
+- **tituloSite**: Fonte utilizada para o título do site.
+- **tituloSiteCor**: Classe do Bootstrap ou estilo CSS aplicado ao título do site para cor.
+- **tituloPrincipal**: Fonte utilizada para os títulos principais, como "CURRICULUM VITAE".
+- **tituloPrincipalCor**: Classe do Bootstrap ou estilo CSS aplicado aos títulos principais para cor.
+- **tituloSecundario**: Fonte utilizada para títulos secundários.
+- **tituloSecundarioCor**: Classe do Bootstrap ou estilo CSS aplicado aos títulos secundários para cor.
+- **textoDestaque**: Fonte utilizada para textos em destaque.
+- **textoDestaqueCor**: Classe do Bootstrap ou estilo CSS aplicado aos textos em destaque para cor.
+- **textoPadrao**: Fonte padrão para o texto principal do currículo.
+- **textoPadraoCor**: Classe do Bootstrap ou estilo CSS aplicado ao texto padrão para cor.
+- **textoPadraoLink**: Fonte utilizada para links no texto padrão.
+- **textoPadraoLinkCor**: Classe do Bootstrap ou estilo CSS aplicado aos links no texto padrão para cor.
+
+Essas definições são aplicadas no currículo para garantir consistência visual e estilística utilizando as tecnologias mencionadas.
+
+Este JSON pode ser ajustado conforme necessário para modificar as fontes e cores do currículo conforme especificado.
+</details>
