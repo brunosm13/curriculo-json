@@ -1,4 +1,4 @@
-# Util
+# `/server/util/Util`
 
 Esta classe `Util` fornece métodos utilitários para conversão de datas no formato brasileiro e cálculo de idade.
 <details>
@@ -66,7 +66,7 @@ import Util from './caminho/para/Util';
 ```
 </details>
 
-# HtmlBootstrap
+# `/server/util/HtmlBootstrap`
 
 Esta classe `HtmlBootstrap` facilita a criação de elementos HTML com classes do Bootstrap.
 
