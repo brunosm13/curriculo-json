@@ -1,6 +1,6 @@
-# Public
+# `public`
 
-A pasta public é dedicada a todos os arquivos que serão servidos diretamente ao navegador do usuário. Isso inclui arquivos estáticos como HTML, CSS, JavaScript, imagens e fontes. Esses arquivos são responsáveis pela interface do usuário e interações do lado do cliente.
+A pasta public é dedicada a todos os arquivos que serão servidos diretamente ao navegador do usuário. Isso inclui arquivos estáticos como HTML, CSS, JavaScript, imagens e fontes. Esses arquivos são responsáveis pela interface do usuário e interações do lado do cliente.Abaixo, você encontrará uma explicação resumida sobre a estrutura das pastas dentro do diretório `public`.
 
 ## Estrutura de Pastas
 
