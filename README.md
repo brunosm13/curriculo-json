@@ -6,7 +6,7 @@ Este é um projeto para exibir um currículo online utilizando Node.js, HTML e B
 - JSON
 - HTML
 - Bootstrap v4.1.3
-- Node.js 
+- Node.js v20.15.0 (LTS)
 
 ## Como Usar
 
@@ -29,7 +29,7 @@ Este é um projeto para exibir um currículo online utilizando Node.js, HTML e B
      ```
 
 4. **Executar o servidor:**
-   - Após instalar as dependências, execute o servidor Node.js. O arquivo principal está na pasta raiz, então você pode iniciar o servidor assim:
+   - Após instalar as dependências, execute o servidor Node.js Express. O arquivo principal está na pasta raiz, então você pode iniciar o servidor assim:
      ```
      node App.js
      ```
