@@ -10,6 +10,14 @@ Este é um projeto para exibir um currículo online utilizando Node.js, HTML e B
 - **Backend:** Node.js v20.15.0 (LTS)
 - **Backend:** Express v5.0
 
+## Estrutura do Projeto
+
+O projeto está organizado da seguinte maneira:
+
+- **public:** Contém todos os arquivos relacionados ao frontend, incluindo HTML, CSS e JavaScript.
+
+- **server:** Contém todos os arquivos relacionados ao backend, incluindo a lógica de negócios e acesso aos dados (DAO e SAO).
+
 ## Como Usar
 
 1. **Instale o Node.js:**
