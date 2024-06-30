@@ -14,9 +14,9 @@ Este é um projeto para exibir um currículo online utilizando Node.js, HTML e B
 
 O projeto está organizado da seguinte maneira:
 
-- **public:** Contém todos os arquivos relacionados ao frontend, incluindo HTML, CSS e JavaScript.
+- `public`: Contém todos os arquivos relacionados ao frontend, incluindo HTML, CSS e JavaScript.
 
-- **server:** Contém todos os arquivos relacionados ao backend, incluindo a lógica de negócios e acesso aos dados (DAO e SAO).
+- `server`: Contém todos os arquivos relacionados ao backend, incluindo a lógica de negócios e acesso aos dados (DAO e SAO).
 
 ## Objetivo do Projeto
 Facilitar a vida de trabalhadores na geração de currículo com um formato padronizado onde o foco seja simplicidade e objetividade.
