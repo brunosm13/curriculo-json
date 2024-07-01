@@ -22,7 +22,7 @@ Facilitar a vida de trabalhadores na geração de currículo com um formato padr
 - **Frontend:** Bootstrap v4.1.3
 - **Backend:** Javascript
 - **Backend:** Node.js v20.15.0 (LTS)
-- **Backend:** Express v5.0
+- **Backend:** Express v4.19.2
 
 ## Como Usar
 
