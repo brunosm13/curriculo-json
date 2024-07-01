@@ -15,7 +15,7 @@ O construtor inicializa a estrutura HTML da página de currículo, incluindo o c
 ##### Exemplo de Uso
 
 ```javascript
-import CurriculoView from '../server/view/CurriculoView';
+import CurriculoView from '/page/currículo';
 
 const curriculoView = new CurriculoView();
 ```
@@ -30,7 +30,7 @@ Carrega os dados do currículo no HTML da página.
 #### Exemplo de Uso
 
 ```javascript
-import CurriculoView from '../server/view/CurriculoView';
+import CurriculoView from '/page/currículo';
 
 const curriculoView = new CurriculoView();
 
@@ -87,7 +87,7 @@ Altera o estilo dos elementos HTML com base nos dados fornecidos.
 #### Exemplo de Uso
 
 ```javascript
-import CurriculoView from '../server/view/CurriculoView';
+import CurriculoView from '/page/currículo';
 
 const curriculoView = new CurriculoView();
 
@@ -114,7 +114,7 @@ Certifique-se de que a classe `CurriculoView` esteja corretamente importada e in
 
 ```javascript
 // Importando a classe CurriculoView
-import CurriculoView from '../server/view/CurriculoView';
+import CurriculoView from '/page/currículo';
 
 // Criando uma instância da CurriculoView
 const curriculoView = new CurriculoView();
