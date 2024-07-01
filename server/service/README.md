@@ -43,7 +43,7 @@ Certifique-se de que o `CurriculoService` está exportado corretamente no seu ar
 export default CurriculoService;
 
 // Exemplo de importação em outro arquivo
-import CurriculoRouter from '../server/service/CurriculoService.js';
+import CurriculoService from '../server/service/CurriculoService.js';
 ````
 </details>
 
@@ -92,7 +92,7 @@ Certifique-se de que o `FonteService` está exportado corretamente no seu arquiv
 export default FonteService;
 
 // Exemplo de importação em outro arquivo
-import CurriculoRouter from '../server/service/FonteService.js';
+import FonteService from '../server/service/FonteService.js';
 ````
 </details>
 
