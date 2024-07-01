@@ -2,8 +2,12 @@
 
 ## `CurriculoView`
 
-A classe `CurriculoView` é responsável por gerenciar a visualização do currículo, incluindo a criação de elementos HTML e a inserção de dados dinâmicos na página.
+A classe `CurriculoView` é responsável por gerenciar a visualização do currículo, incluindo a criação de elementos HTML e a inserção de dados dinâmicos na página. Esta classe é utilizada na pasta`public`, por isso foi configurada no `App.js` com s seguinte rota:
 
+```javascript
+// Rota configurada no App.js
+app.get('/page/curriculo', (req, res) => {res.sendFile(path.join(__dirname, 'server', 'view', 'CurriculoView.js'));});
+```
 <details>
 
 ### Métodos
@@ -119,3 +123,4 @@ import CurriculoView from '/page/currículo';
 // Criando uma instância da CurriculoView
 const curriculoView = new CurriculoView();
 ```
+</details>
