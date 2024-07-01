@@ -4,11 +4,23 @@
 
 Este controlador `CurriculoController` gerencia as requisições relacionadas ao currículo, utilizando serviços fornecidos pelo `CurriculoService`.
 
-Esta classe está configurada para ser utilizada na rota `/api/curriculo` na `App.js` assim:
+Esta classe está configurada para ser utilizada na rota `/api/curriculo`. Onde na `App.js` está assim:
 ```javascript
+import curriculoRoute from './server/route/CurriculoRoute.js';
+
+app.use('/api', curriculoRoute);
 ```
 E na `/server/route/CurriculoRouter`:
 ```javascript
+import express from 'express';
+import CurriculoController from '../controller/CurriculoController.js';
+
+const router = express.Router();
+const curriculoController = new CurriculoController();
+
+router.get('/curriculo', (req, res) => curriculoController.carregarDados(req, res));
+
+export default router;
 ```
 <details>
 
