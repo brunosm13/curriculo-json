@@ -58,4 +58,6 @@ Facilitar a vida de trabalhadores na geração de currículo com um formato padr
    - Abra um navegador da web e vá para `http://localhost:3030` para visualizar a página do currículo.
 ---
 
+## Licença
 
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
