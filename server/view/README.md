@@ -14,12 +14,16 @@ app.get('/page/curriculo', (req, res) => {res.sendFile(path.join(__dirname, 'ser
 
 #### `constructor()`
 
-O construtor inicializa a estrutura HTML da página de currículo, incluindo o cabeçalho, conteúdo principal e rodapé.
+O construtor inicializa a estrutura HTML da página de currículo, incluindo o cabeçalho, conteúdo principal e rodapé. Importante importar também a classe Util e HtmlBootstrap porque são utilizadas na construção das páginas.
 
 ##### Exemplo de Uso
 
 ```javascript
 import CurriculoView from '/page/currículo';
+
+// Classes necessárias importar para construção de página
+import Util from '/util/Util.js';
+import HtmlBootstrap from '/util/HtmlBootstrap.js'; 
 
 const curriculoView = new CurriculoView();
 ```
@@ -35,6 +39,8 @@ Carrega os dados do currículo no HTML da página.
 
 ```javascript
 import CurriculoView from '/page/currículo';
+import Util from '/util/Util.js';
+import HtmlBootstrap from '/util/HtmlBootstrap.js';
 
 const curriculoView = new CurriculoView();
 
@@ -92,6 +98,8 @@ Altera o estilo dos elementos HTML com base nos dados fornecidos.
 
 ```javascript
 import CurriculoView from '/page/currículo';
+import Util from '/util/Util.js';
+import HtmlBootstrap from '/util/HtmlBootstrap.js'; 
 
 const curriculoView = new CurriculoView();
 
@@ -119,6 +127,10 @@ Certifique-se de que a classe `CurriculoView` esteja corretamente importada e in
 ```javascript
 // Importando a classe CurriculoView
 import CurriculoView from '/page/currículo';
+
+// Classes necessárias importar para construção de página
+import Util from '/util/Util.js';
+import HtmlBootstrap from '/util/HtmlBootstrap.js'; 
 
 // Criando uma instância da CurriculoView
 const curriculoView = new CurriculoView();
