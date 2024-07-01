@@ -22,12 +22,12 @@ As classes da pasta `server` serão somente acessadas através das rotas configu
     // Classes View
     import CurriculoView from '/page/curriculo/';
     // A view precisam ser iniciadas
-	const curriculoView= new CurriculoView();  
+    const curriculoView= new CurriculoView();  
     
     // Classes Utils
     // Não precisa ser iniciada por ser estática
     import Util from '/util/Util.js';
-	import HtmlBootstrap from '/util/HtmlBootstrap.js'; 
+    import HtmlBootstrap from '/util/HtmlBootstrap.js'; 
 
     // Classes Controller 
     // Podem ser acessada sem ser importada através da Promise.
