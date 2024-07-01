@@ -4,6 +4,12 @@
 
 Este controlador `CurriculoController` gerencia as requisições relacionadas ao currículo, utilizando serviços fornecidos pelo `CurriculoService`.
 
+Esta classe está configurada para ser utilizada na rota `/api/curriculo` na `App.js` assim:
+```javascript
+```
+E na `/server/route/CurriculoRouter`:
+```javascript
+```
 <details>
 
 ### Métodos
