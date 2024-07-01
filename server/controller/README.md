@@ -4,13 +4,13 @@
 
 Este controlador `CurriculoController` gerencia as requisições relacionadas ao currículo, utilizando serviços fornecidos pelo `CurriculoService`.
 
-Esta classe está configurada para ser utilizada na rota `/api/curriculo`. Onde na `App.js` está assim:
+Esta classe está configurada para ser utilizada na rota `/api/curriculo`. Onde na `App.js` precisa estar desta seguinte forma:
 ```javascript
 import curriculoRoute from './server/route/CurriculoRoute.js';
 
 app.use('/api', curriculoRoute);
 ```
-E na `/server/route/CurriculoRouter`:
+E na `/server/route/CurriculoRouter` desta seguinte forma:
 ```javascript
 import express from 'express';
 import CurriculoController from '../controller/CurriculoController.js';
@@ -61,6 +61,25 @@ import CurriculoController from '../server/controller/CurriculoController';
 ## `FonteController`
 
 Este controlador `FonteController` é responsável por lidar com as requisições relacionadas ao carregamento de dados de fontes para a aplicação.
+
+Esta classe está configurada para ser utilizada na rota `/api/fonte`. Onde na `App.js` precisa estar desta seguinte forma:
+```javascript
+import fonteRoute from './server/route/fonteRoute.js';
+
+app.use('/api', fonteRoute);
+```
+E na `/server/route/FonteRouter` desta seguinte forma:
+```javascript
+import express from 'express';
+import fonteController from '../controller/FonteController.js';
+
+const router = express.Router();
+const fonteController = new FonteController();
+
+router.get('/fonte', (req, res) => fonteController.carregarDados(req, res));
+
+export default router;
+```
 
 <details>
 
