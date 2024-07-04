@@ -21,7 +21,7 @@ Facilitar a vida de trabalhadores na geração de currículo com um formato padr
 - **Frontend:** HTML5
 - **Frontend:** Bootstrap v4.1.3
 - **Backend:** Javascript
-- **Backend:** Node.js v20.15.0 (LTS)
+- **Backend:** Node.js v22.1.0
 - **Backend:** Express v4.19.2
 
 ## Como Usar
@@ -47,6 +47,7 @@ Facilitar a vida de trabalhadores na geração de currículo com um formato padr
      ```
      npm install express
      ```
+   - Incluir `type=module` no arquivo `package.json`.
 
 4. **Executar o servidor:**
    - Após instalar as dependências, execute o servidor Node.js Express. O arquivo principal está na pasta raiz, então você pode iniciar o servidor assim:
