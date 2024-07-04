@@ -1,16 +1,20 @@
 import express from 'express'; // Servidor Node
 import path from 'path'; //Pegar caminho de arquivo
 import fs from 'fs'; //Leitura de Arquivo
+import {fileURLToPath } from 'url'; //Corrigir caminho
 import curriculoRoute from './server/route/CurriculoRoute.js'; // Rota de Curriculo
 import fonteRoute from './server/route/FonteRoute.js'; // Rota da Configuração da Fonte
-import {fileURLToPath } from 'url'; //Corrigir caminho
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const app = express(); //Configuração de
-const PORT = process.env.PORT || 3030; // Define a porta onde o servidor irá escutar
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express(); //Iniciar servidor
+const PORT = process.env.PORT || 21107; // A porta onde o servidor irá escutar
+const HOST = process.env.HOST || 'brunosmacario.com.br'; // O host do servidor
 
 // Middleware para servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
+
 // Rota principal para servir o arquivo index.html da pasta 'public'
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -34,8 +38,6 @@ app.get('/server/data/fonte', (req, res) => {
   });
 });
 
-
-
 // Outros middlewares e rotas do seu aplicativo Express
 
 //para ser usada uma classe do 'server' no 'public' é preciso colocar uma rota
@@ -52,4 +54,8 @@ app.use('/api', fonteRoute);
 // Inicia o servidor e escuta na porta especificada
 app.listen(PORT, () => {
   console.log(`Servidor Express iniciado na porta ${PORT}`);
+  console.log(`Servidor rodando em: ${HOST}:${PORT}`)
 });
+
+
+

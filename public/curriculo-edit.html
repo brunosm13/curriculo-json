@@ -31,24 +31,29 @@
 
                 <div class="card-body row">
                     <div class="form-group col-12">
-                        <label for="lblUltimaAtualizacao" class="form-label">Última atualização do Currículo:</label>
+                        <label for="txtTitulo" class="form-label">Título:</label>
+                        <input id="txtTitulo" type="text" class="form-control" value="CURRICULUM VITAE" readonly>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label for="txtUltimaAtualizacao" class="form-label">Última atualização do Currículo:</label>
                         <input id="txtUltimaAtualizacao" type="text" class="form-control" placeholder="Ex: Última atualização em maio de 2024" required>
                     </div>
     
                     <div class="form-group col-12">
-                        <label for="lblNome" class="form-label">Nome Completo:</label>
+                        <label for="txtNome" class="form-label">Nome Completo:</label>
                         <input  id="txtNome" type="text" class="form-control" placeholder="Ex: Maria Martins de Andrade" required>
                     </div>
                     
                     <div class="form-group col-sm-6">
-                        <label for="lblDataNascimento">Data de Nascimento:</label>
-                        <input  id="dtDataNascimento" type="date" class="form-control" placeholder="Ex: 19/01/2000" required>
+                        <label for="dtDataNascimento">Data de Nascimento:</label>
+                        <input  id="dtDataNascimento" type="date" class="form-control" required>
                     </div>
     
                     <div class="form-group col-sm-6">
-                        <label for="lblEstadoCivil">Estado Cívil:</label>
+                        <label for="cbEstadoCivil">Estado Cívil:</label>
                         <select id="cbEstadoCivil" class="custom-select" required>
-                            <option selected>Selecione seu estado cívil...</option>
+                            <option value="" disabled selected>Selecione seu estado cívil...</option>
                             <option value="1">Solteiro(a)</option>
                             <option value="2">Casado(a)</option>
                             <option value="3">Divorciado(a)</option>
@@ -58,33 +63,176 @@
                     </div>
     
                     <div class="form-group col-sm-6">
-                        <label for="lblEmail" class="form-label">E-mail Pessoal:</label>
+                        <label for="txtEmail" class="form-label">E-mail Pessoal:</label>
                         <input  id="txtEmail" type="email" class="form-control" placeholder="Ex: maria.andrade@gmail.com" required>
                     </div>
     
                     <div class="form-group col-sm-6">
-                        <label for="lblLinkedIn" class="form-label">LinkedIn:</label>
+                        <label for="txtLinkedIn" class="form-label">LinkedIn:</label>
                         <input  id="txtLinkedIn" type="text" class="form-control" placeholder="Ex: https://www.linkedin.com/in/mariandra/">
                     </div>
 
-                    <div class="card col-12 p-2 mb-2">
+                    <div class="container-fluid card col-12 p-2 mb-2">
                         <h6 class="card-title">FORMAÇÃO ACADÊMICA</h6>
-                        <div class="card-body">testeeee</div>
+                        <div class="card-body row">
+                            <div class="border-bottom mb-2 row mx-1">
+                                <div class="inicio form-group btn-group col-12">
+                                    <button type="button" class="btn btn-primary col-12">Nova Formação</button>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="txtInstituto" class="form-label">Instituto:</label>
+                                    <input  id="txtInstituto" type="text" class="form-control" placeholder="Ex: Universidade de Pedra Leão" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtArea" class="form-label">Área ou Curso:</label>
+                                    <input  id="txtArea" type="text" class="form-control" placeholder="Ex: Bachalerado em Economia" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtConcluidoEm" class="form-label">Conclusão ou previsão de conclusão:</label>
+                                    <input  id="txtConcluidoEm" type="text" class="form-control" placeholder="Ex: 2022" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtTCC" class="form-label">TCC:</label>
+                                    <input  id="txtTCC" type="text" class="form-control" placeholder="Ex: Ensino de Economia aplicada em Jogos de RPG">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtTCCLink" class="form-label">Link do TCC:</label>
+                                    <input  id="txtTCCLink" type="text" class="form-control" placeholder="Ex: https://www.doc.com.br/tcc-maria.pdf">
+                                </div>
+
+                                <div class="padrao form-group btn-group col-12">
+                                    <button type="button" class="btn btn-danger col-6">Apagar</button>
+                                    <button type="button" class="btn btn-primary col-6">Nova Formação</button>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="card col-12 p-2 mb-2">
                         <h6 class="card-title">EXPERIÊNCIAS PROFISSIONAIS</h6>
-                        <div class="card-body">testeeee</div>
+                        <div class="card-body row">
+                            <div class="border-bottom mb-2 row mx-1">
+                                <div class="inicio form-group btn-group col-12">
+                                    <button type="button" class="btn btn-primary col-12">Nova Experiência</button>
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <label for="txtEmpresa" class="form-label">Empresa:</label>
+                                    <input  id="txtEmpresa" type="text" class="form-control" placeholder="Ex: Seu Jorge Associados" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtCargo" class="form-label">Cargo:</label>
+                                    <input  id="txtCargo" type="text" class="form-control" placeholder="Ex: Analista Financeiro" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="cbModalidade" class="form-label">Modalidade:</label>
+                                    <select id="cbModalidade" class="custom-select" required>
+                                        <option value="" disabled selected>Selecione  onde trabalhava...</option>
+                                        <option value="1">Presencial</option>
+                                        <option value="2">Homeoffice</option>
+                                        <option value="3">Híbrido</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtPeriodo" class="form-label">Período:</label>
+                                    <input  id="txtPeriodo" type="text" class="form-control" placeholder="Ex: janeiro de 2021 até o momento" required>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtAtividades" class="form-label">Atividades:</label>
+                                    <input  id="txtAtividades" type="text" class="form-control" placeholder="Ex: Fechamento de folha, pagamentos de serviço e controle de balanço." required>
+                                </div>
+
+                                <div class="padrao form-group btn-group col-12">
+                                    <button type="button" class="btn btn-danger col-6">Apagar</button>
+                                    <button type="button" class="btn btn-primary col-6">Nova Experiência</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
     
                     <div class="card col-12 p-2 mb-2">
                         <h6 class="card-title">CURSOS, TREINAMENTOS E CERTIFICAÇÕES</h6>
-                        <div class="card-body">testeeee</div>
+                        <div class="card-body row">
+                            <div class="border-bottom mb-2 row mx-1">
+                                <div class="inicio form-group btn-group col-12">
+                                    <button type="button" class="btn btn-primary col-12">Novo Tipo</button>
+                                </div>
+
+                                <div class="form-group col-sm-4">
+                                    <label for="cbTipo" class="form-label">Tipo:</label>
+                                    <select id="cbTipo" class="custom-select" required>
+                                        <option value="" disabled selected>Selecione um tipo...</option>
+                                        <option value="1">Curso</option>
+                                        <option value="2">Treinamento</option>
+                                        <option value="3">Certificado</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-sm-8">
+                                    <label for="txtNomeTipo" class="form-label">Nome:</label>
+                                    <input  id="txtNomeTipo" type="text" class="form-control" placeholder="Ex: Excel Avançado" required>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="txtLink" class="form-label">Link de Comprovante:</label>
+                                    <input  id="txtLink" type="text" class="form-control" placeholder="Ex: http://www.doc.com.br/certificado-excel.pdf">
+                                </div>
+                                
+                                <div class="form-group col-sm-6">
+                                    <label for="txtOnde" class="form-label">Onde:</label>
+                                    <input  id="txtOnde" type="text" class="form-control" placeholder="Ex: efetuado na Microlins">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="txtQuando" class="form-label">Quando:</label>
+                                    <input  id="txtQuando" type="text" class="form-control" placeholder="Ex: em 2021">
+                                </div>
+
+                                <div class="padrao form-group btn-group col-12">
+                                    <button type="button" class="btn btn-danger col-6">Apagar</button>
+                                    <button type="button" class="btn btn-primary col-6">Novo Tipo</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="card col-12 p-2 mb-2">
+                    <div class="container-fluid card col-12 p-2 mb-2">
                         <h6 class="card-title">INFORMAÇÕES BÁSICAS</h6>
-                        <div class="card-body">testeeee</div>
+                        <div class="card-body row">
+                            <div class="border-bottom mb-2 col-12 mx-1">
+                                <div class="inicio form-group btn-group col-12">
+                                    <button type="button" class="btn btn-primary col-12">Nova Informação</button>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="txtInformacao" class="form-label">Informação:</label>
+                                    <input  id="txtInformacao" type="text" class="form-control" placeholder="Ex: Possui noções intermediárias em Pacote Office (Word e PowerPoint)" required>
+                                </div>
+                                
+                                <div class="form-group btn-group col-12">
+                                    <button type="button" class="btn btn-danger col-6">Apagar</button>
+                                    <button type="button" class="btn btn-primary col-6">Nova Informação</button>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
+                    
+                    <!-- <div class="card col-12 p-2 mb-2">
+                        <h6 class="card-title">INFORMAÇÕES BÁSICAS</h6>
+                        <div class="card-body row">
+                            <div class="border-bottom mb-2 row mx-1">
+                                <div class="inicio form-group btn-group col-12">
+                                    <button type="button" class="btn btn-primary col-12">Nova Formação</button>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="txtInfo" class="form-label">Informação:</label>
+                                    <input  id="txtInfo" type="text" class="form-control" placeholder="Ex: Possui noções intermediárias em Pacote Office (Word e PowerPoint)">
+                                </div>
+                                <div class="padrao form-group btn-group col-12">
+                                    <button type="button" class="btn btn-danger col-6">Apagar</button>
+                                    <button type="button" class="btn btn-primary col-6">Nova Formação</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <div class="container-fluid m-0">
                         <div class="row justify-content-between">
@@ -94,23 +242,6 @@
                     </div>
                 </div>
             </form>
-
-<!--  
-        Última atualização do Currículo (texto)
-        col-12
-        Nome Completo (texto) obrigatório
-
-        col-6
-        Data de Nascimento (data) obrigatório
-        
-        col-6
-        Estado Cívil (lista) obrigatório
-        
-        col-6
-        E-mail Pessoal (email) obrigatório
-        col-6    
-        LinkedIn (site) opcional
- -->
 		</main>
 
 
@@ -127,8 +258,6 @@
 			//import HtmlBootstrap from '/util/HtmlBootstrap.js'; 
             
 			//import CurriculoView from '/page/curriculo/';
-
-            
 		</script>
 	</body>
 </html>
