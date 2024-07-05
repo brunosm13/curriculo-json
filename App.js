@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express(); //Iniciar servidor
-const PORT = process.env.PORT || 21107; // A porta onde o servidor irá escutar
+const PORT = process.env.PORT || 21124; // A porta onde o servidor irá escutar
 const HOST = process.env.HOST || 'brunosmacario.com.br'; // O host do servidor
 
 // Middleware para servir arquivos estáticos da pasta 'public'
