@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const app = express(); //Iniciar servidor
 const PORT_HTTP = process.env.PORT_HTTP || 80; // Porta HTTP
 const PORT_HTTPS = process.env.PORT_HTTPS || 443; // Porta HTTPS
-const HOST = process.env.HOST || link.LOCAL; // O host do servidor
+const HOST = process.env.HOST || link.PRODUCAO; // O host do servidor
 
 const credentials = Util.lerArquivoPEM(fs,'./server/ssl/brunosmacario.com.br.pem'); // Arquivo PEM SSL
 
