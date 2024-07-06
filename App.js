@@ -16,7 +16,7 @@ const PORT_HTTP = process.env.PORT_HTTP || 80; // Porta HTTP
 const PORT_HTTPS = process.env.PORT_HTTPS || 443; // Porta HTTPS
 const HOST = process.env.HOST || 'brunosmacario.com.br'; // O host do servidor
 
-const credentials = Util.lerArquivoPEM(fs, path.dirname(__dirname, 'server', 'ssl', 'brunosmacario.com.br.pem')); // Arquivo PEM SSL
+const credentials = Util.lerArquivoPEM(fs,'./server/ssl/brunosmacario.com.br.pem'); // Arquivo PEM SSL
 
 // Middleware para servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
