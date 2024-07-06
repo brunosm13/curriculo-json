@@ -17,7 +17,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express(); //Iniciar servidor
-const PORT_HTTP = process.env.PORT_HTTP || 80; // Porta HTTP
+//const PORT_HTTP = process.env.PORT_HTTP || 80; // Porta HTTP
 const PORT_HTTPS = process.env.PORT_HTTPS || 443; // Porta HTTPS
 const HOST = process.env.HOST || link.PRODUCAO; // O host do servidor
 
@@ -66,11 +66,11 @@ app.get('/page/curriculo', (req, res) => {res.sendFile(path.join(__dirname, 'ser
 app.use('/api', fonteRoute);
 
 // Servidor HTTP
-const httpServer = http.createServer(app);
-httpServer.listen(PORT_HTTP, () => {
-    console.log(`Servidor Express HTTP iniciado na porta ${PORT_HTTP}`);
-    console.log(`Servidor rodando em: http://${HOST}:${PORT_HTTP}`);
-});
+//const httpServer = http.createServer(app);
+//httpServer.listen(PORT_HTTP, () => {
+//    console.log(`Servidor Express HTTP iniciado na porta ${PORT_HTTP}`);
+//    console.log(`Servidor rodando em: http://${HOST}:${PORT_HTTP}`);
+//});
 
 // Servidor HTTPS
 if (credentials) {
