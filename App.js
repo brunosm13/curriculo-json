@@ -8,18 +8,25 @@ import Util from './server/util/Util.js'; // Para tratar o arquivo PEM do SSL
 import https from 'https'; // Módulo HTTPS do Node.js
 import http from 'http'; // Módulo HTTP do Node.js
 
+const link = {
+    PRODUCAO: "brunosmacario.com.br",
+    LOCAL: "localhost"
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express(); //Iniciar servidor
 const PORT_HTTP = process.env.PORT_HTTP || 80; // Porta HTTP
 const PORT_HTTPS = process.env.PORT_HTTPS || 443; // Porta HTTPS
-const HOST = process.env.HOST || 'brunosmacario.com.br'; // O host do servidor
+const HOST = process.env.HOST || link.LOCAL; // O host do servidor
 
 const credentials = Util.lerArquivoPEM(fs,'./server/ssl/brunosmacario.com.br.pem'); // Arquivo PEM SSL
 
 // Middleware para servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
+// Middleware para servir arquivos estáticos da pasta 'server'
+app.use(express.static(path.join(__dirname, 'server')));
 
 // Rota principal para servir o arquivo index.html da pasta 'public'
 app.get('/', (req, res) => {
