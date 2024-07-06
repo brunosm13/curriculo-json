@@ -24,3 +24,6 @@ logs
 
 # Environment variables
 .env*
+
+# certificado SSL
+brunosmacario.com.br.pem

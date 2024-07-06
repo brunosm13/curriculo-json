@@ -4,13 +4,19 @@ import fs from 'fs'; //Leitura de Arquivo
 import {fileURLToPath } from 'url'; //Corrigir caminho
 import curriculoRoute from './server/route/CurriculoRoute.js'; // Rota de Curriculo
 import fonteRoute from './server/route/FonteRoute.js'; // Rota da Configuração da Fonte
+import Util from './server/util/Util.js'; // Para tratar o arquivo PEM do SSL
+import https from 'https'; // Módulo HTTPS do Node.js
+import http from 'http'; // Módulo HTTP do Node.js
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express(); //Iniciar servidor
-const PORT = process.env.PORT || 21124; // A porta onde o servidor irá escutar
+const PORT_HTTP = process.env.PORT_HTTP || 80; // Porta HTTP
+const PORT_HTTPS = process.env.PORT_HTTPS || 443; // Porta HTTPS
 const HOST = process.env.HOST || 'brunosmacario.com.br'; // O host do servidor
+
+const credentials = Util.lerArquivoPEM(fs, path.join(__dirname, 'server', 'ssl', 'brunosmacario.com.br.pem')); // Arquivo PEM SSL
 
 // Middleware para servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
@@ -33,7 +39,7 @@ app.get('/server/data/fonte', (req, res) => {
 
       // Lê o arquivo e envia como resposta
       fs.readFile(filePath, 'utf8', (err, data) => {
-          res.status(202).json(JSON.parse(data));
+          res.status(200).json(JSON.parse(data));
       });
   });
 });
@@ -44,6 +50,7 @@ app.get('/server/data/fonte', (req, res) => {
 app.get('/util/Util.js', (req, res) => {res.sendFile(path.join(__dirname, 'server', 'util', 'Util.js'));});
 app.get('/util/HtmlBootstrap.js', (req, res) => {res.sendFile(path.join(__dirname, 'server', 'util', 'HtmlBootstrap.js'));});
 
+
 // Curriculo
 app.use('/api', curriculoRoute);
 app.get('/page/curriculo', (req, res) => {res.sendFile(path.join(__dirname, 'server', 'view', 'CurriculoView.js'));});
@@ -51,11 +58,23 @@ app.get('/page/curriculo', (req, res) => {res.sendFile(path.join(__dirname, 'ser
 // Configuração da Fonte
 app.use('/api', fonteRoute);
 
-// Inicia o servidor e escuta na porta especificada
-app.listen(PORT, () => {
-  console.log(`Servidor Express iniciado na porta ${PORT}`);
-  console.log(`Servidor rodando em: ${HOST}:${PORT}`)
+// Servidor HTTP
+const httpServer = http.createServer(app);
+httpServer.listen(PORT_HTTP, () => {
+    console.log(`Servidor Express HTTP iniciado na porta ${PORT_HTTP}`);
+    console.log(`Servidor rodando em: http://${HOST}:${PORT_HTTP}`);
 });
+
+// Servidor HTTPS
+if (credentials) {
+    const httpsServer = https.createServer(credentials, app);
+    httpsServer.listen(PORT_HTTPS, () => {
+        console.log(`Servidor Express HTTPS iniciado na porta ${PORT_HTTPS}`);
+        console.log(`Servidor rodando em: https://${HOST}:${PORT_HTTPS}`);
+    });
+} else {
+    console.log('Certificado SSL inválido ou não encontrado. Servidor HTTPS não iniciado.');
+}
 
 
 

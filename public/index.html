@@ -37,10 +37,9 @@
 			import Util from '/util/Util.js'; // precisa importar sempre que utilizar na página
 			import HtmlBootstrap from '/util/HtmlBootstrap.js'; // precisa importar sempre que utilizar na página
 			import CurriculoView from '/page/curriculo/';
-
+		
 			// Página do curriculo
 			const curriculoView= new CurriculoView(); // Carrega os componentes iniciais da página
-
 			//Carrega componentes e informações da página
 			document.addEventListener('DOMContentLoaded', function() {
 				// Promise.all é utilizado quando há mais de duas chamadas ao mesmo tempo
@@ -54,9 +53,7 @@
 					// carrega as configurações do fonte-config.json
 					curriculoView.alterarEstilo(fonteConfig);
 				})
-				.catch(error => {
-					console.error('Erro ao carregar os dados:', error);
-				});
+				
 			});
 		</script>
  
