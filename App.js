@@ -6,22 +6,18 @@ import curriculoRoute from './server/route/CurriculoRoute.js'; // Rota de Curric
 import fonteRoute from './server/route/FonteRoute.js'; // Rota da Configuração da Fonte
 import Util from './server/util/Util.js'; // Para tratar o arquivo PEM do SSL
 import https from 'https'; // Módulo HTTPS do Node.js
-import http from 'http'; // Módulo HTTP do Node.js
+// import http from 'http'; // Módulo HTTP do Node.js
+import dotenv from 'dotenv';
 
-const link = {
-    PRODUCAO: "brunosmacario.com.br",
-    LOCAL: "localhost"
-}
+dotenv.config();
 
+//Correção dos caminhos
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express(); //Iniciar servidor
-//const PORT_HTTP = process.env.PORT_HTTP || 80; // Porta HTTP 80
-const PORT_HTTPS = process.env.PORT_HTTPS || 21124; // Porta HTTPS 443
-const HOST = process.env.HOST || link.PRODUCAO; // O host do servidor
 
-const credentials = Util.lerArquivoPEM(fs,'./server/ssl/brunosmacario.com.br.pem'); // Arquivo PEM SSL
+const credentials = Util.lerArquivoPEM(fs,process.env.PEM_PATH); // Arquivo PEM SSL
 
 // Middleware para servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,6 +27,11 @@ app.use(express.static(path.join(__dirname, 'server')));
 // Rota principal para servir o arquivo index.html da pasta 'public'
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Rota para servir o arquivo curriculoform.html da pasta 'public'
+app.get('/curriculo/form', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'curriculoform.html'));
 });
 
 // Endpoint para acessar o arquivo fonte-config.json
@@ -65,23 +66,25 @@ app.get('/page/curriculo', (req, res) => {res.sendFile(path.join(__dirname, 'ser
 // Configuração da Fonte
 app.use('/api', fonteRoute);
 
+// --------------------------------------------
+// Como o servidor do KingHost não funciona com o 443 e 80, então será usado só o https
+// com porta 21124 mesmo.
 // Servidor HTTP
 //const httpServer = http.createServer(app);
 //httpServer.listen(PORT_HTTP, () => {
 //    console.log(`Servidor Express HTTP iniciado na porta ${PORT_HTTP}`);
 //    console.log(`Servidor rodando em: http://${HOST}:${PORT_HTTP}`);
 //});
+//-----------------------------------------------
 
 // Servidor HTTPS
 if (credentials) {
+    // inicia servidor HTTPS utilizando o certificado PEM na pasta serve/ssl
     const httpsServer = https.createServer(credentials, app);
-    httpsServer.listen(PORT_HTTPS, () => {
-        console.log(`Servidor Express HTTPS iniciado na porta ${PORT_HTTPS}`);
-        console.log(`Servidor rodando em: https://${HOST}:${PORT_HTTPS}`);
+    httpsServer.listen(process.env.PORT_HTTPS, () => {
+        console.log(`Servidor Express HTTPS iniciado na porta ${process.env.PORT_HTTPS}`);
+        console.log(`Servidor rodando em: https://${process.env.HOST}:${process.env.PORT_HTTPS}`);
     });
 } else {
     console.log('Certificado SSL inválido ou não encontrado. Servidor HTTPS não iniciado.');
 }
-
-
-

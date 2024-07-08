@@ -4,12 +4,24 @@ class HtmlBootstrap{
     static tag= {
         a: 'a',
         button: 'button',
+        code: 'code',
         div: 'div',
+        form: 'form',
+        h1: 'h1',
+        h2: 'h2',
+        h3: 'h3',
+        h4: 'h4',
+        h5: 'h5',
         h6: 'h6',
         hgroup: 'hgroup',
+        input: 'input',
+        label:'label',
         li: 'li',
+        option: 'option',
         p: 'p',
         path: 'path',
+        pre: 'pre',
+        select: 'select',
         span: 'span',
         svg: 'svg',
         ul: 'ul'
@@ -17,8 +29,17 @@ class HtmlBootstrap{
 
     // Para identificar qual a função que vai utilizar no botão
     static funcao= {
-        imprimir: 'imprimir'
+        imprimir: 'imprimir',
+        implementar:'implementar'
     };
+
+    static tipoCampo={
+        data:'data',
+        email:'email',
+        link: 'link',
+        selecaoUnica:'selecaoUnica',
+        textoNormal:'textoNormal'
+    }
 
     // cria um elemento de acordo com o que é passado
     static criarElemento(tag, classes=null, texto=null, link=null, title=null, dataToggle=null, style=null){
@@ -74,7 +95,8 @@ class HtmlBootstrap{
                     window.print();
                 });
                 break;
-
+            case this.funcao.implementar:
+                break;
             default:
                 throw new Error("Função não encontrada. Por favor, configure a nova função.");
         };
@@ -106,10 +128,165 @@ class HtmlBootstrap{
         return cardtitle;
     };
 
+    // cria um campo para preencher
+    static criarInput(tipoCampo, texto, tamanho, placeholder, id=null, valores=[] ,obrigatorio=false, somenteLeitura= false){
+        let formgroupCampo= this.criarElemento(this.tag.div, 'form-group '+tamanho);
+
+        let lblCampo= this.criarElemento(this.tag.label, 'form-label',texto);
+        formgroupCampo.appendChild(lblCampo);
+
+        let inputCampo;
+        switch(tipoCampo){
+            case this.tipoCampo.textoNormal:
+            case this.tipoCampo.link:
+                inputCampo= this.criarElemento(this.tag.input, 'form-control');
+                inputCampo.setAttribute('type','text');
+                valores.forEach(valor=>{
+                    inputCampo.setAttribute('value',valor);
+                });
+                if(!this.validarArgumento(id))
+                    inputCampo.setAttribute('id',id);
+                if(!this.validarArgumento(placeholder))
+                    inputCampo.setAttribute('placeholder',placeholder);
+                if(somenteLeitura)
+                    inputCampo.setAttribute('readonly','readonly');
+                if(obrigatorio)
+                    inputCampo.setAttribute('required','required');
+                break;
+            case this.tipoCampo.email:
+                inputCampo= this.criarElemento(this.tag.input, 'form-control');
+                inputCampo.setAttribute('type','email');
+                valores.forEach(valor=>{
+                    inputCampo.setAttribute('value',valor);
+                });
+                if(!this.validarArgumento(id))
+                    inputCampo.setAttribute('id',id);
+                if(!this.validarArgumento(placeholder))
+                    inputCampo.setAttribute('placeholder',placeholder);
+                if(somenteLeitura)
+                    inputCampo.setAttribute('readonly','readonly');
+                if(obrigatorio)
+                    inputCampo.setAttribute('required','required');
+                    break;
+            case this.tipoCampo.data:
+                inputCampo= this.criarElemento(this.tag.input, 'form-control');
+                inputCampo.setAttribute('type','date');
+                valores.forEach(valor=>{
+                    inputCampo.setAttribute('value',valor);
+                });
+                if(!this.validarArgumento(id))
+                    inputCampo.setAttribute('id',id);
+                if(somenteLeitura)
+                    inputCampo.setAttribute('readonly','readonly');
+                if(obrigatorio)
+                    inputCampo.setAttribute('required','required');  
+                break;
+            case this.tipoCampo.selecaoUnica:
+                inputCampo= this.criarElemento(this.tag.select, 'custom-select');
+                if(!this.validarArgumento(id))
+                    inputCampo.setAttribute('id',id);
+                if(!this.validarArgumento(placeholder))
+                    inputCampo.setAttribute('placeholder',placeholder);
+                if(somenteLeitura)
+                    inputCampo.setAttribute('readonly','readonly');
+                if(obrigatorio)
+                    inputCampo.setAttribute('required','required');
+                
+                let contador=0;
+                valores.forEach(valor=>{
+                    let opcao= this.criarElemento(this.tag.option,'',valor);
+
+                    let value= contador > 0 ? contador : '';
+                    opcao.setAttribute('value',value);
+
+                    if (contador== 0){
+                        opcao.setAttribute('disabled','disabled');
+                        opcao.setAttribute('selected','selected');
+                    }
+                    inputCampo.appendChild(opcao);
+                    contador++;
+                });
+            break;
+
+            default:
+                throw new Error("Tipo de campo não encontrado. Por favor, configure o novo tipo de campo.");
+        };
+
+        formgroupCampo.appendChild(inputCampo);
+        return formgroupCampo;
+    }
+
+    // criar uma alerta
+    static criarAlert(classe, texto){
+        let divAlert= this.criarElemento(this.tag.div,'alert alert-success alert-dismissible fade show mx-4 my-1 '+classe,texto);
+        let btnFechar= this.criarButton('','close','',this.funcao.implementar);
+        btnFechar.setAttribute('data-dismiss','alert');
+        btnFechar.setAttribute('aria-label','Fechar');
+        let spanFechar= this.criarElemento(this.tag.span);
+        spanFechar.setAttribute('aria-hidden', 'true');
+        spanFechar.innerHTML = '&times;';
+        btnFechar.appendChild(spanFechar);
+        divAlert.appendChild(btnFechar);
+
+        return divAlert;
+    }
+
+    static newTabLi(id, texto, formulario, selecionado){
+        return tabli= {
+            id: id,
+            texto: texto,
+            formulario: formulario,
+            selecionado: selecionado
+        };
+    }
+
+    static newTab(aba, texto, painel, selecionado){
+        return tabpane={
+            aba: aba,
+            texto: texto,
+            painel: painel,
+            selecionado: selecionado
+        };
+    }
+
+    static criarTabHead(id,tabs){
+        let nav= this.criarElementoId(this.tag.ul,id,'nav nav-tabs mb-3');
+        nav.setAttribute('role','tablist');
+
+        tabs.forEach(tab =>{
+            let li= this.criarElemento(this.tag.li,'nav-item');
+            let a= this.criarElementoId(this.tag.a, tab.aba,'nav-link',tab.texto)
+            a.setAttribute('data-toggle','tab');
+            a.setAttribute('href','#'+tab.painel);
+            a.setAttribute('role','tab');
+            a.setAttribute('aria-controls',tab.painel);
+            a.setAttribute('aria-selected',tab.selecionado);
+            li.appendChild(a);
+            nav.appendChild(li);
+        });
+
+        return nav;
+    }
+
+    static criarTabContent(tabpanes){
+        let div= this.criarElemento(this.tag.div,'tab-content');
+
+        tabpanes.forEach(tabpane =>{
+            let divTabPane= this.criarElementoId(this.tag.div,tabpane.painel,'tab-pane fade');
+            divTabPane.setAttribute('role','tabpanel');
+            divTabPane.setAttribute('aria-labelledby',tabpane.aba);
+            if (tabpane.selecionado) 
+                divTabPane.classList.add('show','active');
+            div.appendChild(divTabPane);
+        });
+
+        return div;
+    };
+
     // Verifica se o argumento está vazio, nulo ou em branco.
     static validarArgumento(argumento){
         return (argumento == null || argumento == undefined || argumento.trim().length == 0);
-    };  
+    };
 }
 
 export default HtmlBootstrap;
