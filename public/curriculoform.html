@@ -38,360 +38,70 @@
 		<script src="/js/jquery-3.3.1.slim.min.js"></script>
 		<script src="/js/bootstrap.bundle.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
-
         
         <script type="module">
             let dadosJSON= {
-                "atualizadoEm": "",
+                "atualizadoEm": "Última atualização em junho de 2024",
                 "titulo": "CURRICULUM VITAE",
-                "nome": "",
-                "dataNascimento": "",
-                "estadoCivil": "",
-                "emailPessoal": "",
-                "linkedIn": "",
-                "formacoes": [],
-                "experiencias": [],
-                "CursosTreinamentosCertificacoes": [],
-                "rodapeSite": "Desenvolvido por Bruno Silva Macário utilizando Bootstrap v4.1.3 + Javascript + JSON"
+                "nome": "MARIANA SOUSA LIMA",
+                "dataNascimento": "15/09/1990",
+                "estadoCivil": "Casada",
+                "emailPessoal": "mariana.sousa@gmail.com",
+                "linkedIn": "https://www.linkedin.com/in/marianasousa/",
+                "formacoes": [
+                    {
+                        "instituto": "UNIVERSIDADE FEDERAL DE SÃO PAULO",
+                        "area": "Bacharelado em Engenharia de Computação",
+                        "concluidoEm": "2013",
+                        "TCC": "Desenvolvimento de uma Plataforma de Monitoramento de Tráfego em Tempo Real",
+                        "TCClink": "https://drive.google.com/file/d/1aBcDeFgHijKlMnoPqRsTuvXYZ/view"
+                    }
+                ],
+                "experiencias": [
+                    {
+                        "empresa": "TECH SOLUTIONS LTDA",
+                        "cargo": "Engenheira de Software",
+                        "modalidade": "Presencial",
+                        "periodo": "maio de 2015 até o momento",
+                        "atividades": "Desenvolvimento de sistemas para automação industrial, liderança de equipe de desenvolvimento e implementação de soluções em nuvem."
+                    },
+                    {
+                        "empresa": "DIGITAL MARKETING AGENCY",
+                        "cargo": "Analista de Sistemas",
+                        "modalidade": "Homeoffice",
+                        "periodo": "janeiro de 2013 a abril de 2015",
+                        "atividades": "Desenvolvimento e manutenção de sistemas de gestão empresarial, análise de requisitos e suporte técnico."
+                    }
+                ],
+                "CursosTreinamentosCertificacoes": [
+                    {
+                        "tipo": "Curso",
+                        "nome": "Introdução ao Machine Learning",
+                        "link": "https://drive.google.com/file/d/1aBcDeFgHijKlMnoPqRsTuvXYZ/view",
+                        "onde": "efetuado na plataforma Coursera",
+                        "quando": "em 2022"
+                    },
+                    {
+                        "tipo": "Certificado",
+                        "nome": "Scrum Master Certified (SMC™)",
+                        "link": "https://www.scrumstudy.com/certification/scrum-master-certified-smc",
+                        "onde": "emitido pela ScrumStudy",
+                        "quando": "em 2021"
+                    }
+                ],
+                "InformacoesBasicas": [
+                    "Fluente em Inglês e Português",
+                    "Experiência em liderança de equipes de desenvolvimento ágil",
+                    "Participação em conferências internacionais sobre IoT e automação",
+                    "Habilidades avançadas em desenvolvimento de APIs RESTful"
+                ],
+                "rodapeSite": "Desenvolvido por Mariana Sousa Lima utilizando Bootstrap v4.1.3 + Javascript + JSON"
             }
 
-			import Util from '/util/Util.js';
-			import HtmlBootstrap from '/util/HtmlBootstrap.js'; 
+            import CurriculoFormView from '/view/curriculo/form';
             
-			//import CurriculoFormView from '/page/curriculo/form';
-
-            // ----  FUNCTION // CONSTRUCTOR ----- 
-
-            // ----  SESSION ----- Sessão de alertas
-            let alertas = document.getElementById('alertas');
-
-            // ----  HEADER ----- Cabeçalho do Site
-            //let header = document.getElementById('cabecalhoSite');
-
-            // ----  MAIN ----- Conteúdo do Site
-            let main = document.getElementById('conteudoSite');
-
-            // --- ABAS -------
-            const abas = [
-                { aba: 'tab-form', texto: 'Formulário', painel: 'pane-form', selecionado: true},
-                { aba: 'tab-json', texto: 'JSON', painel: 'pane-json', selecionado: false},
-                { aba: 'tab-print', texto: 'Imprimir', painel: 'pane-print', selecionado: false}
-            ];
-
-            let tabheadCurriculoForm= HtmlBootstrap.criarTabHead('curriculo-edit',abas);
-            let tabpanesCurriculoForm= HtmlBootstrap.criarTabContent(abas);
-            main.appendChild(tabheadCurriculoForm);
-            main.appendChild(tabpanesCurriculoForm);
-            let paneForm= document.getElementById("pane-form");
-            let paneJSON= document.getElementById("pane-json");
-            let panePrint= document.getElementById("pane-print");
-
-
-            // ----- FORMULÁRIO ------
-            // DADOS PRINCIPAIS
-            // Form
-            let cardformCurriculo= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.form,'card p-2');
-            let cardtitleH5= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.h5,'card-title','DADOS PRINCIPAIS:');
-            cardtitleH5.setAttribute('style','font-family:Alata, sans-serif;');
-            cardformCurriculo.appendChild(cardtitleH5);
-            
-            // Grupo de Campos
-            let cardbodyCurriculo= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.div,'card-body row');
-            cardformCurriculo.appendChild(cardbodyCurriculo);
-            
-            //Titulo do Curriculo
-            let txtTitulo= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Título:','col-12','','txtTitulo',['CURRICULUM VITAE'],false,true);
-            cardbodyCurriculo.appendChild(txtTitulo);
-
-            //Última atualização
-            let txtUltimaAtualizacao= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Última atualização do Currículo:','col-12','Ex: Última atualização em maio de 2024','txtUltimaAtualizacao',[],true);
-            cardbodyCurriculo.appendChild(txtUltimaAtualizacao);
-
-            //Nome Completo
-            let txtNome= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Nome Completo:','col-12','Ex: Maria Martins de Andrade','txtNome',[],true);
-            cardbodyCurriculo.appendChild(txtNome);
-
-            //Data de Nascimento
-            let dtDataNascimento= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.data,'Data de Nascimento:','col-sm-6','','dtDataNascimento',[],true);
-            cardbodyCurriculo.appendChild(dtDataNascimento);
-
-            //Estado Cívil 
-            let cbEstadoCivil= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.selecaoUnica,'Estado Cívil:','col-sm-6','','cbEstadoCivil',['Selecione seu estado cívil...','Solteiro(a)','Casado(a)','Divorciado(a)','Viúvo(a)','Separado(a)'],true);
-            cardbodyCurriculo.appendChild(cbEstadoCivil);
-
-            //E-mail 
-            let txtEmail= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.email,'Email pessoal:','col-12','Ex: maria.andrade@gmail.com','txtEmail',[],true);
-            cardbodyCurriculo.appendChild(txtEmail);
-
-            //LinkedIn
-            let txtLinkedIn= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.link,'LinkedIn:','col-12','Ex: https://www.linkedin.com/in/mariandra/','txtLinkedIn');
-            cardbodyCurriculo.appendChild(txtLinkedIn);
-
-            // FORMAÇÃO ACADÊMICA
-            // Card
-            let cardFormacoes= HtmlBootstrap.criarCard('container-fluid card col-12 p-2 mb-2');
-            cardformCurriculo.appendChild(cardFormacoes);
-
-            //Título e Dados
-            let lblFormacoes= HtmlBootstrap.criarCardTitle('FORMAÇÃO ACADÊMICA','titulo-secundario h6 font-weight-bold');
-            lblFormacoes.setAttribute('style','font-family:Alata, sans-serif;');
-            let cardbodyFormacoes= HtmlBootstrap.criarCardBody('row');
-            cardFormacoes.appendChild(lblFormacoes);
-            cardFormacoes.appendChild(cardbodyFormacoes);
-
-            //Nova Linha
-            let btnNovaFormacao = HtmlBootstrap.criarButton('btnNovaFormacao', 'btn btn-secondary col-12','Nova Formação',HtmlBootstrap.funcao.implementar);	
-            btnNovaFormacao.addEventListener('click', function() {
-                event.preventDefault();
-                //Grupo de Informações da Formação
-                let divFormacao= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.div,'linha border-bottom mb-2 row mx-1 col-12');
-                // Instituto
-                let txtInstituto= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Instituto:','col-12','Ex: Universidade de Pedra Leão','txtInstituto',[],true);
-                divFormacao.appendChild(txtInstituto);
-                // Área ou Curso:
-                let txtArea= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Área ou Curso:','col-sm-6','Ex: Bachalerado em Economia','txtArea',[],true);
-                divFormacao.appendChild(txtArea);
-                // Conclusão ou previsão de conclusão:
-                let txtConcluidoEm= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Conclusão ou previsão de conclusão:','col-sm-6','Ex: 2022','txtConcluidoEm',[],true);
-                divFormacao.appendChild(txtConcluidoEm);
-                // TCC:
-                let txtTCC= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'TCC:','col-sm-6','Ex: Ensino de Economia aplicada em Jogos de RPG','txtTCC');
-                divFormacao.appendChild(txtTCC);
-                // Link do TCC:
-                let txtTCCLink= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.link,'Link do TCC:','col-sm-6','Ex: https://www.doc.com.br/tcc-maria.pdf','txtTCCLink');
-                divFormacao.appendChild(txtTCCLink);
-                 
-                // Apagar Linha
-                let btnApagarFormacao = HtmlBootstrap.criarButton('', 'form-group btn btn-danger col-12','Apagar',HtmlBootstrap.funcao.implementar);
-                btnApagarFormacao.addEventListener('click', function() { divFormacao.remove()});
-                divFormacao.appendChild(btnApagarFormacao);
-                cardbodyFormacoes.appendChild(divFormacao);
-            });
-            cardFormacoes.appendChild(btnNovaFormacao);
-
-            // EXPERIÊNCIAS PROFISSIONAIS
-            // Card
-            let cardExperiencias= HtmlBootstrap.criarCard('container-fluid card col-12 p-2 mb-2');
-            cardformCurriculo.appendChild(cardExperiencias);
-
-            //Título e Dados
-            let lblExperiencias= HtmlBootstrap.criarCardTitle('EXPERIÊNCIAS PROFISSIONAIS','h6 font-weight-bold');
-            lblExperiencias.setAttribute('style','font-family:Alata, sans-serif;');
-            let cardbodyExperiencias= HtmlBootstrap.criarCardBody('row');
-            cardExperiencias.appendChild(lblExperiencias);
-            cardExperiencias.appendChild(cardbodyExperiencias);
-
-            //Nova Linha
-            let btnNovaExperiencia = HtmlBootstrap.criarButton('btnNovaExperiencia', 'btn btn-secondary col-12','Nova Experiência',HtmlBootstrap.funcao.implementar);	
-            btnNovaExperiencia.addEventListener('click', function() {
-                event.preventDefault();
-                //Grupo de Informações da Experiência
-                let divExperiencia= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.div,'linha border-bottom mb-2 row mx-1 col-12');
-                // Empresa:
-                let txtEmpresa= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Empresa:','col-12','Ex: Seu Jorge Associados','txtEmpresa',[],true);
-                divExperiencia.appendChild(txtEmpresa);
-                // Cargo:
-                let txtCargo= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Cargo:','col-sm-6','Ex: Analista Financeiro','txtCargo',[],true);
-                divExperiencia.appendChild(txtCargo);
-                // Modalidade:
-                let cbModalidade= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.selecaoUnica,'Modalidade:','col-sm-6','','cbModalidade',['Selecione  onde trabalhava...','Presencial','Homeoffice','Híbrido'],true);
-                divExperiencia.appendChild(cbModalidade);
-                // Período:
-                let txtPeriodo= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Período:','col-sm-6','Ex: janeiro de 2021 até o momento','txtPeriodo',[],true);
-                divExperiencia.appendChild(txtPeriodo);
-                // Atividades:
-                let txtAtividades= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Atividades:','col-sm-6','Ex: Fechamento de folha, pagamentos de serviço e controle de balanço.','txtAtividades',[],true);
-                divExperiencia.appendChild(txtAtividades);
-                // Apagar Linha
-                let btnApagarExperiencia = HtmlBootstrap.criarButton('', 'form-group btn btn-danger col-12','Apagar',HtmlBootstrap.funcao.implementar);
-                btnApagarExperiencia.addEventListener('click', function() { divExperiencia.remove()});
-                divExperiencia.appendChild(btnApagarExperiencia);
-                cardbodyExperiencias.appendChild(divExperiencia);
-            });
-            cardExperiencias.appendChild(btnNovaExperiencia);
-
-            // CURSOS, TREINAMENTOS E CERTIFICAÇÕES
-            // Card
-            let cardCursosTreinamentosCertificacoes= HtmlBootstrap.criarCard('container-fluid card col-12 p-2 mb-2');
-            cardformCurriculo.appendChild(cardCursosTreinamentosCertificacoes);
-
-            //Título e Dados
-            let lblCursosTreinamentosCertificacoes= HtmlBootstrap.criarCardTitle('CURSOS, TREINAMENTOS E CERTIFICAÇÕES','titulo-secundario h6 font-weight-bold');
-            lblCursosTreinamentosCertificacoes.setAttribute('style','font-family:Alata, sans-serif;');
-            let cardbodyCursosTreinamentosCertificacoes= HtmlBootstrap.criarCardBody('row');
-            cardCursosTreinamentosCertificacoes.appendChild(lblCursosTreinamentosCertificacoes);
-            cardCursosTreinamentosCertificacoes.appendChild(cardbodyCursosTreinamentosCertificacoes);
-            
-            //Nova Linha
-            let btnNovoTipo = HtmlBootstrap.criarButton('btnNovoTipo', 'btn btn-secondary col-12','Novo Tipo',HtmlBootstrap.funcao.implementar);	
-            btnNovoTipo.addEventListener('click', function() {
-                event.preventDefault();
-                //Grupo de Informações da Tipo
-                let divTipo= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.div,'linha border-bottom mb-2 row mx-1 col-12');
-                // Tipo:
-                let cbTipo= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.selecaoUnica,'Tipo:','col-sm-4','','cbTipo',['Selecione um tipo...','Curso','Treinamento','Certificado'],true);
-                divTipo.appendChild(cbTipo);
-                // Nome:
-                let txtNomeTipo= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Nome:','col-sm-8','Ex: Excel Avançado','txtNomeTipo',[],true);
-                divTipo.appendChild(txtNomeTipo);
-                // Link de Comprovante:
-                let txtLink= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.link,'Link de Comprovante:','col-sm-12','Ex: http://www.doc.com.br/certificado-excel.pdf','txtLink',[]);
-                divTipo.appendChild(txtLink);
-                // Onde:
-                let txtOnde= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Onde:','col-sm-6','Ex: efetuado na Microlins','txtOnde',[],true);
-                divTipo.appendChild(txtOnde);
-                // Onde:
-                let txtQuando= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Quando:','col-sm-6','Ex: em 2021','txtQuando',[],true);
-                divTipo.appendChild(txtQuando);
-                // Apagar Linha
-                let btnApagarTipo = HtmlBootstrap.criarButton('', 'form-group btn btn-danger col-12','Apagar',HtmlBootstrap.funcao.implementar);
-                btnApagarTipo.addEventListener('click', function() {divTipo.remove()});
-                divTipo.appendChild(btnApagarTipo);
-                cardbodyCursosTreinamentosCertificacoes.appendChild(divTipo);
-            });
-            cardCursosTreinamentosCertificacoes.appendChild(btnNovoTipo);
-
-            // INFORMAÇÕES BÁSICAS
-            // Card
-            let cardInformacoesBasicas= HtmlBootstrap.criarCard('container-fluid card col-12 p-2 mb-2');
-            cardformCurriculo.appendChild(cardInformacoesBasicas);
-
-            //Título e Dados
-            let lblInformacoesBasicas= HtmlBootstrap.criarCardTitle('INFORMAÇÕES BÁSICAS','titulo-secundario h6 font-weight-bold');
-            lblInformacoesBasicas.setAttribute('style','font-family:Alata, sans-serif;');
-            let cardbodyInformacoesBasicas= HtmlBootstrap.criarCardBody('row');
-            cardInformacoesBasicas.appendChild(lblInformacoesBasicas);
-            cardInformacoesBasicas.appendChild(cardbodyInformacoesBasicas);
-
-            //Nova Linha
-            let btnNovaInformacao = HtmlBootstrap.criarButton('btnNovaInformacao', 'btn btn-secondary col-12','Nova Informação',HtmlBootstrap.funcao.implementar);	
-            btnNovaInformacao.addEventListener('click', function() {
-                event.preventDefault();
-                //Grupo de Informações da Informação
-                let divInformacao= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.div,'linha border-bottom mb-2 row mx-1 col-12');
-                // Informação:
-                let txtInformacao= HtmlBootstrap.criarInput(HtmlBootstrap.tipoCampo.textoNormal,'Informação:','col-sm-12','Ex: Possui noções intermediárias em Pacote Office (Word e PowerPoint)','txtInformacao',[]);
-                divInformacao.appendChild(txtInformacao);
-                // Apagar Linha
-                let btnApagarInformacao = HtmlBootstrap.criarButton('', 'form-group btn btn-danger col-12','Apagar',HtmlBootstrap.funcao.implementar);
-                btnApagarInformacao.addEventListener('click', function() {divInformacao.remove()});
-                divInformacao.appendChild(btnApagarInformacao);
-                cardbodyInformacoesBasicas.appendChild(divInformacao);
-            });
-            cardInformacoesBasicas.appendChild(btnNovaInformacao);
-            
-
-            let btnSubmit=HtmlBootstrap.criarButton('btnSubmit', 'btn btn-secondary col-12 my-4','SALVAR',HtmlBootstrap.funcao.implementar);
-            btnSubmit.addEventListener('click',function(){
-                event.preventDefault();
-                let jsonBody= {
-                    "atualizadoEm": document.getElementById('txtUltimaAtualizacao').value,
-                    "titulo": document.getElementById('txtTitulo').value,
-                    "nome": document.getElementById('txtNome').value,
-                    "dataNascimento": document.getElementById('dtDataNascimento').value,
-                    "estadoCivil": document.getElementById('cbEstadoCivil').options[document.getElementById('cbEstadoCivil').selectedIndex].text, 
-                    "emailPessoal": document.getElementById('txtEmail').value,
-                    "linkedIn": document.getElementById('txtLinkedIn').value,
-                    "formacoes": [],
-                    "experiencias": [],
-                    "CursosTreinamentosCertificacoes": [],
-                    "InformacoesBasicas": [],
-                    "rodapeSite": "Desenvolvido por Bruno Silva Macário utilizando Bootstrap v4.1.3 + Javascript + JSON"
-                };
-
-                let formacoes= [];
-                cardbodyFormacoes.querySelectorAll('.linha').forEach(formacaoDiv => {
-                    let formacao={
-                        "instituto": formacaoDiv.querySelector('#txtInstituto').value,
-		                "area": formacaoDiv.querySelector('#txtArea').value,
-		                "concluidoEm": formacaoDiv.querySelector('#txtConcluidoEm').value,
-		                "TCC": formacaoDiv.querySelector('#txtTCC').value, 
-		                "TCClink": formacaoDiv.querySelector('#txtTCCLink').value
-                    }
-                    formacoes.push(formacao);
-                });
-                jsonBody['formacoes']=formacoes;
-
-                let experiencias= [];
-                cardbodyExperiencias.querySelectorAll('.linha').forEach(formacaoDiv => {
-                    let experiencia={
-                        "empresa": formacaoDiv.querySelector('#txtEmpresa').value,
-		                "cargo": formacaoDiv.querySelector('#txtCargo').value,
-		                "modalidade": formacaoDiv.querySelector('#cbModalidade option:checked').textContent,
-		                "periodo": formacaoDiv.querySelector('#txtPeriodo').value,
-		                "atividades": formacaoDiv.querySelector('#txtAtividades').value
-                    }
-                    experiencias.push(experiencia);
-                });
-                jsonBody['experiencias']=experiencias;
-
-                let tipos= [];
-                cardbodyCursosTreinamentosCertificacoes.querySelectorAll('.linha').forEach(formacaoDiv => {
-                    let tipo={
-                        "tipo": formacaoDiv.querySelector('#cbTipo option:checked').textContent,
-		                "nome": formacaoDiv.querySelector('#txtNomeTipo').value,
-		                "link": formacaoDiv.querySelector('#txtLink').value,
-		                "onde": formacaoDiv.querySelector('#txtOnde').value,
-		                "quando": formacaoDiv.querySelector('#txtQuando').value
-                    }
-                    tipos.push(tipo);
-                });
-                jsonBody['CursosTreinamentosCertificacoes']=tipos;
-
-
-                let informacoes= [];
-                cardbodyInformacoesBasicas.querySelectorAll('.linha').forEach(formacaoDiv => {
-                    informacoes.push(formacaoDiv.querySelector('#txtInformacao').value);
-                });
-                jsonBody['InformacoesBasicas']=informacoes;
-                
-                dadosJSON = jsonBody;
-                document.querySelector('#codedata').textContent = JSON.stringify(dadosJSON, null, 4);
-                
-                let alerta= HtmlBootstrap.criarAlert('alert-success','Dados do currículo foram salvos com sucesso.');
-                alertas.appendChild(alerta);
-            });
-            
-
-            paneForm.appendChild(cardformCurriculo);
-            paneForm.appendChild(btnSubmit);
-
-            // ----- JSON
-
-            let cardJSON= HtmlBootstrap.criarCard();
-            let cardtitleJSON= HtmlBootstrap.criarCardTitle('', 'd-flex justify-content-between align-items-center');
-            let h5JSON= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.h5, 'm-2', 'Dados cadastrados no JSON');
-            h5JSON.setAttribute('style','font-family:Alata, sans-serif;');
-
-            let btnDownloadJSON= HtmlBootstrap.criarButton('btnDownloadJSON', 'btn-outline-secondary m-1', 'Fazer Donwload', HtmlBootstrap.funcao.implementar);
-            btnDownloadJSON.addEventListener('click',function(){
-                const jsonString = JSON.stringify(dadosJSON, null, 4);
-				const blob = new Blob([jsonString], { type: 'application/json' });
-				const url = URL.createObjectURL(blob);
-
-                //Preparar arquivo para download
-                const arquivo= HtmlBootstrap.criarElemento(HtmlBootstrap.tag.a,'','', url,);
-                arquivo.download= 'meu-curriculo.json'
-				arquivo.click();
-				URL.revokeObjectURL(url);
-            });
-
-            cardtitleJSON.appendChild(h5JSON);
-            cardtitleJSON.appendChild(btnDownloadJSON);
-            cardJSON.appendChild(cardtitleJSON);
-
-            let cardbodyJSON= HtmlBootstrap.criarCardBody();
-            let preJSON= HtmlBootstrap.criarElementoId(HtmlBootstrap.tag.pre,'jsonData','pre-scrollable text-light bg-dark p-3');
-            let codeJSON=HtmlBootstrap.criarElementoId(HtmlBootstrap.tag.code,'codedata');
-            codeJSON.innerHTML= JSON.stringify(dadosJSON, null, 4);
-            preJSON.appendChild(codeJSON);
-            cardbodyJSON.appendChild(preJSON);
-            
-            cardJSON.appendChild(cardbodyJSON);
-            paneJSON.appendChild(cardJSON);
-
-            // FOOTER - Rodapé do Site
-            // let footer = document.getElementById('rodapeSite');
+            // Página do curriculo
+			const curriculoFormView= new CurriculoFormView(dadosJSON);           
 		</script>
 	</body>
 </html>

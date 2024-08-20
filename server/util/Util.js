@@ -1,10 +1,24 @@
 class Util{
+    // Converte data em texto no formato dd/mm/aaaa para date
     static converteDataBR(dataTexto){
         const [day, month, year] = dataTexto.split('/').map(Number);
     			
 		return new Date(year, month - 1, day); // O mês em JavaScript é indexado a partir de 0
     }
 
+    // Converte date para data texto no formato dd/mm/aaaa
+    static converteParaDataBR(dataDate) {
+        // Divide a data ISO (yyyy-mm-dd) em partes
+        const partes = dataDate.split("-");
+        const ano = partes[0];
+        const mes = partes[1];
+        const dia = partes[2];
+    
+        //Retorna a data no formato brasileiro (dd/mm/yyyy)
+        return `${dia}/${mes}/${ano}`;
+    }
+
+    //Calcula a idade da pessoa
     static calcularIdade(dataNascimento){
         const hoje = new Date();
 		let idade = hoje.getFullYear() - dataNascimento.getFullYear();
@@ -18,6 +32,7 @@ class Util{
     	return idade;
     }
 
+    // Efetua a leitura do PEM responsável pela validação do SSL
 	static lerArquivoPEM(fs, caminho) {
         try {
             const conteudo = fs.readFileSync(caminho, 'utf8');
@@ -50,6 +65,7 @@ class Util{
         }
     }
 
+    // Valida o arquivo PEM para efetuar a leitura
     static __validarArquivoPEM(conteudo) {
         // Verifica se o arquivo contém os cabeçalhos e rodapés necessários
         const hasChavePrivada = conteudo.includes('-----BEGIN RSA PRIVATE KEY-----') && conteudo.includes('-----END RSA PRIVATE KEY-----');
@@ -58,6 +74,45 @@ class Util{
         return hasChavePrivada && hasCertificado;
     }
 
+    static validarTexto(texto, minimo, maximo) {
+        const tamanho = texto.trim().length;
+        return tamanho >= minimo && tamanho <= maximo;
+    }
+
+    static validarData(dataString, minDias, maxDias) {
+        // Converte a string de data no formato dd/mm/aaaa para um objeto Date
+        const data = this.converteDataBR(dataString);
+
+        // Calcula as datas mínima e máxima com base na quantidade de dias
+        const hoje = new Date();
+        const min = new Date(hoje);
+        min.setDate(hoje.getDate() + minDias);
+
+        const max = new Date(hoje);
+        max.setDate(hoje.getDate() + maxDias);
+
+        // Verifica se a data é válida e está dentro do intervalo
+        return !isNaN(data.getTime()) && data >= min && data <= max;
+    }
+
+    static validarEmail(email, minimo, maximo) {
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regexEmail.test(email) && email.length >= minimo && email.length <= maximo;
+    }
+
+    static validarLink(link, minimo, maximo) {
+        // Adiciona "http://" ao link se ele não começar com "http://" ou "https://"
+        if (!/^https?:\/\//i.test(link))
+            link = 'http://' + link;
+        const urlRegex = /^(https?):\/\/[^\s/$.?#].[^\s]*$/i;
+    
+        // Verifica se o link está dentro dos limites de comprimento e se corresponde ao regex de URL
+        return link.length >= minimo && link.length <= maximo && urlRegex.test(link);
+    }
+
+    static validarGrupo(valor, minimo, maximo) {
+        return valor.length >= minimo && valor.length <= maximo;
+    }
 }
 
 export default Util;

@@ -2,16 +2,13 @@ import HtmlBootstrap from '/util/HtmlBootstrap.js';
 import Util from '/util/Util.js';
 
 class CurriculoView {
-    constructor() {
+    constructor(header, main, isDadosEstaticos=false) {
         // ----  HEADER ----- Cabeçalho do Site
-        let header = document.getElementById('cabecalhoSite');
-
         // Botão Imprimir
         let btnImprimir = HtmlBootstrap.criarButton('imprimir', 'btn-outline-secondary btn-lg btn-block',' Imprimir', HtmlBootstrap.funcao.imprimir);	
         header.appendChild(btnImprimir);
 
         // ----  MAIN ----- Conteúdo do Site
-        let main = document.getElementById('conteudoSite');
 
         // Grupo do cabeçalho
         let hgroupSite = HtmlBootstrap.criarElemento(HtmlBootstrap.tag.hgroup,'clearfix mx-5 mt-3');
@@ -118,12 +115,24 @@ class CurriculoView {
         main.appendChild(cardCursosTreinamentosCertificacoes);
         main.appendChild(cardInformacoesBasicas);
 
-        // FOOTER - Rodapé do Site
-        // let footer = document.getElementById('rodapeSite');
+        if(!isDadosEstaticos){
+            Promise.all([
+                fetch('/api/curriculo').then(response => response.json()),
+                fetch('/api/fonte').then(response => response.json())
+            ])
+            .then(([dadosPessoa, fonteConfig]) => {
+                // carrega os dados do curriculo.json
+                this.carregarCurriculo(dadosPessoa, document.getElementById('rodapeSite'));
+                // carrega as configurações do fonte-config.json
+                this.alterarEstilo(fonteConfig, document.querySelector('body'));
+            }).catch(error => {
+                console.error('Erro:', error);
+            });
+        }
     }
 
     // Carrega os dados do JSON na página
-    carregarCurriculo(data){
+    carregarCurriculo(data, rodapeSite){
         document.getElementById("atualizadoEm").appendChild(document.createTextNode(data.atualizadoEm));
         document.getElementById("nome").appendChild(document.createTextNode(data.nome));
         document.getElementById("titulo").appendChild(document.createTextNode(data.titulo));
@@ -252,12 +261,12 @@ class CurriculoView {
 
             InformacoesBasicasList.appendChild(li);});	
         
-        const rodapeSite = document.getElementById('rodapeSite');
         rodapeSite.appendChild(document.createTextNode(data.rodapeSite + ' (v20240630)'));
     }
 
-    alterarEstilo(dados) {
-        var elementos= document.querySelectorAll(".titulo-site");
+//  Alterar as fontes configuradas no currículo
+    alterarEstilo(dados, painel) {
+        var elementos= painel.querySelectorAll(".titulo-site");
      
         elementos.forEach(function(elemento){
             elemento.style.fontFamily = dados.tituloSite;

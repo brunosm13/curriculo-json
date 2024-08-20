@@ -228,7 +228,19 @@ class HtmlBootstrap{
         btnFechar.appendChild(spanFechar);
         divAlert.appendChild(btnFechar);
 
+        //Fechar alerta automaticamente
+        setTimeout(function() {
+            divAlert.classList.add('fade');
+            divAlert.querySelector('.close').click(); // Simula o clique no botão de fechar
+        }, 5000); // 5000 milissegundos = 5 segundos
+
         return divAlert;
+    }
+
+    static exibirAlerta(classe, texto){
+        let alertas= document.getElementById("alertas");
+        let divAlert= this.criarAlert(classe, texto);
+        alertas.appendChild(divAlert);
     }
 
     static newTabLi(id, texto, formulario, selecionado){
@@ -287,6 +299,12 @@ class HtmlBootstrap{
     static validarArgumento(argumento){
         return (argumento == null || argumento == undefined || argumento.trim().length == 0);
     };
+
+    static limparPainel(header, main, footer){
+        header.innerHTML='';
+        main.innerHTML='';
+        footer.innerHTML='';
+    }
 }
 
 export default HtmlBootstrap;
