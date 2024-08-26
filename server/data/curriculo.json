@@ -1,5 +1,5 @@
 {
-	"atualizadoEm": "Última atualização em maio de 2024",
+	"atualizadoEm": "Última atualização em agosto de 2024",
 	"titulo": "CURRICULUM VITAE",
 	"nome": "BRUNO SILVA MACÁRIO",
 	"dataNascimento": "24/02/1991",
@@ -20,7 +20,7 @@
 		"empresa": "FITINSUR",
 		"cargo": "Analista de Sistemas",
 		"modalidade": "Homeoffice",
-		"periodo": "janeiro de 2022 até o momento",
+		"periodo": "janeiro de 2022 até agosto de 2024",
 		"atividades": "Análise de requisitos para sistema que suporta os processos de seguro (cotação, emissão de apólice e endosso) em equipe ágil."
 	  },
 	  {
@@ -53,6 +53,13 @@
 	  }
 	],
 	"CursosTreinamentosCertificacoes": [
+	  {
+		"tipo": "Curso",
+		"nome": "Curso Governança de TI: Gestão de Requisitos no Contexto Ágil",
+		"link": "https://drive.google.com/file/d/1WetE-tAItbMhCTTk3SpbN8e9_r8neoeS/view",
+		"onde": "efetuado no portal do Alura",
+		"quando": "em 2024"
+	  },
 	  {
 		"tipo": "Curso",
 		"nome": "UX: entenda a experiência de usuário",
